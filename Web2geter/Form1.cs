@@ -30,18 +30,18 @@ namespace Web2geter
 						//htmlタグをすべて取得
 						string html = sr.ReadToEnd();
 						//rtb_Mainのテキストに代入
-						rtb_Main.Text = html;
+						Price1.Text = html;
 					}
 				}
 			}
 			catch (Exception)
 			{
 				//URLが正しくないとき
-				rtb_Main.Text = "URLが正しくない可能性があります。\r\n入力し直してください。";
+				Price1.Text = "URLが正しくない可能性があります。\r\n入力し直してください。";
 			}
 		}
 
-		private void rtb_Main_TextChanged(object sender, EventArgs e)
+		private void Del1_Click(object sender, EventArgs e)
 		{
 
 		}
