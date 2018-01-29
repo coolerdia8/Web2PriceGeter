@@ -60,7 +60,7 @@
 			this.Price1.ReadOnly = true;
 			this.Price1.Size = new System.Drawing.Size(118, 55);
 			this.Price1.TabIndex = 2;
-			this.Price1.TextChanged += new System.EventHandler(this.rtb_Main_TextChanged);
+			//this.Price1.TextChanged += new System.EventHandler(this.Price1);
 			// 
 			// Del1
 			// 
