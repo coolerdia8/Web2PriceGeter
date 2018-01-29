@@ -60,7 +60,7 @@
 			this.Price1.Multiline = true;
 			this.Price1.Name = "Price1";
 			this.Price1.ReadOnly = true;
-			this.Price1.Size = new System.Drawing.Size(118, 55);
+			this.Price1.Size = new System.Drawing.Size(118, 23);
 			this.Price1.TabIndex = 2;
 			// 
 			// Del1
