@@ -76,6 +76,7 @@
 			// labelURL
 			// 
 			this.labelURL.AutoSize = true;
+			this.labelURL.ForeColor = System.Drawing.Color.DarkRed;
 			this.labelURL.Location = new System.Drawing.Point(23, 14);
 			this.labelURL.Name = "labelURL";
 			this.labelURL.Size = new System.Drawing.Size(72, 12);
