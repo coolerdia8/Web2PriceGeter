@@ -43,7 +43,12 @@ namespace Web2geter
 
 		private void Del1_Click(object sender, EventArgs e)
 		{
+			Price1.Text = "";
+		}
 
+		private void URL_Clear_Click(object sender, EventArgs e)
+		{
+			tb_html.Text = "";
 		}
 	}
 }

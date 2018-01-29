@@ -32,6 +32,8 @@
 			this.tb_html = new System.Windows.Forms.TextBox();
 			this.Price1 = new System.Windows.Forms.TextBox();
 			this.Del1 = new System.Windows.Forms.Button();
+			this.labelURL = new System.Windows.Forms.Label();
+			this.URL_Clear = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// button1
@@ -60,7 +62,6 @@
 			this.Price1.ReadOnly = true;
 			this.Price1.Size = new System.Drawing.Size(118, 55);
 			this.Price1.TabIndex = 2;
-			//this.Price1.TextChanged += new System.EventHandler(this.Price1);
 			// 
 			// Del1
 			// 
@@ -72,11 +73,32 @@
 			this.Del1.UseVisualStyleBackColor = true;
 			this.Del1.Click += new System.EventHandler(this.Del1_Click);
 			// 
+			// labelURL
+			// 
+			this.labelURL.AutoSize = true;
+			this.labelURL.Location = new System.Drawing.Point(23, 14);
+			this.labelURL.Name = "labelURL";
+			this.labelURL.Size = new System.Drawing.Size(72, 12);
+			this.labelURL.TabIndex = 4;
+			this.labelURL.Text = "▼URLを入力";
+			// 
+			// URL_Clear
+			// 
+			this.URL_Clear.Location = new System.Drawing.Point(424, 30);
+			this.URL_Clear.Name = "URL_Clear";
+			this.URL_Clear.Size = new System.Drawing.Size(59, 23);
+			this.URL_Clear.TabIndex = 5;
+			this.URL_Clear.Text = "URLｸﾘｱ";
+			this.URL_Clear.UseVisualStyleBackColor = true;
+			this.URL_Clear.Click += new System.EventHandler(this.URL_Clear_Click);
+			// 
 			// form_Main
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(495, 353);
+			this.Controls.Add(this.URL_Clear);
+			this.Controls.Add(this.labelURL);
 			this.Controls.Add(this.Del1);
 			this.Controls.Add(this.Price1);
 			this.Controls.Add(this.tb_html);
@@ -94,6 +116,8 @@
 		private System.Windows.Forms.TextBox tb_html;
 		private System.Windows.Forms.TextBox Price1;
 		private System.Windows.Forms.Button Del1;
+		private System.Windows.Forms.Label labelURL;
+		private System.Windows.Forms.Button URL_Clear;
 	}
 }
 
