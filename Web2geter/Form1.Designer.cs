@@ -34,6 +34,7 @@
 			this.Del1 = new System.Windows.Forms.Button();
 			this.labelURL = new System.Windows.Forms.Label();
 			this.URL_Clear = new System.Windows.Forms.Button();
+			this.Save1 = new System.Windows.Forms.Button();
 			this.SuspendLayout();
 			// 
 			// button1
@@ -56,11 +57,11 @@
 			// 
 			// Price1
 			// 
-			this.Price1.Location = new System.Drawing.Point(207, 84);
+			this.Price1.Location = new System.Drawing.Point(194, 84);
 			this.Price1.Multiline = true;
 			this.Price1.Name = "Price1";
 			this.Price1.ReadOnly = true;
-			this.Price1.Size = new System.Drawing.Size(118, 23);
+			this.Price1.Size = new System.Drawing.Size(105, 23);
 			this.Price1.TabIndex = 2;
 			// 
 			// Del1
@@ -93,11 +94,22 @@
 			this.URL_Clear.UseVisualStyleBackColor = true;
 			this.URL_Clear.Click += new System.EventHandler(this.URL_Clear_Click);
 			// 
+			// Save1
+			// 
+			this.Save1.Location = new System.Drawing.Point(314, 84);
+			this.Save1.Name = "Save1";
+			this.Save1.Size = new System.Drawing.Size(52, 23);
+			this.Save1.TabIndex = 6;
+			this.Save1.Text = "Save";
+			this.Save1.UseVisualStyleBackColor = true;
+			this.Save1.Click += new System.EventHandler(this.Save1_Click);
+			// 
 			// form_Main
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(495, 353);
+			this.Controls.Add(this.Save1);
 			this.Controls.Add(this.URL_Clear);
 			this.Controls.Add(this.labelURL);
 			this.Controls.Add(this.Del1);
@@ -119,6 +131,7 @@
 		private System.Windows.Forms.Button Del1;
 		private System.Windows.Forms.Label labelURL;
 		private System.Windows.Forms.Button URL_Clear;
+		private System.Windows.Forms.Button Save1;
 	}
 }
 

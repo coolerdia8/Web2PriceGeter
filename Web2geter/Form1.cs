@@ -98,5 +98,10 @@ namespace Web2geter
 		{
 			tb_html.Text = "";
 		}
+
+		private void Save1_Click(object sender, EventArgs e)
+		{
+
+		}
 	}
 }
