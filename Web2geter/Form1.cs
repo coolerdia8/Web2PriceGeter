@@ -18,11 +18,22 @@ namespace Web2geter
 
 		private void button1_Click(object sender, EventArgs e)
 		{
+
+			Price1.Text = AgodaGetPrice(tb_html1.Text);
+			DateTime.Now.ToString("s");//取得日時
+		}
+
+		//価格取得メソッド
+		//引数：URL
+		public string AgodaGetPrice(string tb_html)
+		{
+			string Sok;
+			string Smiss;
 			//例外処理
 			try
 			{
 				//OpenReadメソッドでリソースを取得するためのStreamインスタンスを作成
-				using (Stream st = wc.OpenRead(tb_html.Text))
+				using (Stream st = wc.OpenRead(tb_html))
 				{
 					//StreamReaderクラスのインスタンスを作成（ストリームとエンコーディングを指定）
 					using (StreamReader sr = new StreamReader(st, Encoding.UTF8))
@@ -39,15 +50,13 @@ namespace Web2geter
 						//rtb_Mainのテキストに代入
 						if (strTrim == "")
 						{
-							Price1.Text = "URLからの文字取得に失敗しました。\r\n入力し直してください。";
+							Smiss = "Miss!\r\n入力し直してください。";
+							return Smiss;
 						}
 						else
 						{
-							Price1.Text = "\\" + strTrim;
-
-							//取得日
-							//GetDate1.Items.Clear();
-							//GetDate1.Items.Add(DateTime.Now);
+							Sok = "\\" + strTrim;
+						
 						}
 					}
 				}
@@ -55,8 +64,11 @@ namespace Web2geter
 			catch (Exception)
 			{
 				//URLが正しくないとき
-				Price1.Text = "URLが正しくない可能性があります。\r\n入力し直してください。";
+				Smiss = "URLが正しくない可能性があります。\r\n入力し直してください。";
+				return Smiss;
 			}
+
+			return Sok;
 		}
 
 		//2つの文字列の間の文字列を返すメソッド
@@ -94,7 +106,7 @@ namespace Web2geter
 
 		private void URL_Clear_Click(object sender, EventArgs e)
 		{
-			tb_html.Text = "";
+			tb_html1.Text = "";
 		}
 
 		private void Save1_Click(object sender, EventArgs e)
@@ -102,9 +114,6 @@ namespace Web2geter
 
 		}
 
-		private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
-		{
-
-		}
+	
 	}
 }
