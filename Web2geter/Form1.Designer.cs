@@ -35,6 +35,7 @@
 			this.labelURL = new System.Windows.Forms.Label();
 			this.URL_Clear = new System.Windows.Forms.Button();
 			this.Save1 = new System.Windows.Forms.Button();
+			this.comboBox1 = new System.Windows.Forms.ComboBox();
 			this.SuspendLayout();
 			// 
 			// button1
@@ -104,11 +105,21 @@
 			this.Save1.UseVisualStyleBackColor = true;
 			this.Save1.Click += new System.EventHandler(this.Save1_Click);
 			// 
+			// comboBox1
+			// 
+			this.comboBox1.FormattingEnabled = true;
+			this.comboBox1.Location = new System.Drawing.Point(25, 73);
+			this.comboBox1.Name = "comboBox1";
+			this.comboBox1.Size = new System.Drawing.Size(131, 20);
+			this.comboBox1.TabIndex = 7;
+			this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+			// 
 			// form_Main
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(495, 353);
+			this.Controls.Add(this.comboBox1);
 			this.Controls.Add(this.Save1);
 			this.Controls.Add(this.URL_Clear);
 			this.Controls.Add(this.labelURL);
@@ -132,6 +143,7 @@
 		private System.Windows.Forms.Label labelURL;
 		private System.Windows.Forms.Button URL_Clear;
 		private System.Windows.Forms.Button Save1;
+		private System.Windows.Forms.ComboBox comboBox1;
 	}
 }
 

@@ -29,9 +29,7 @@ namespace Web2geter
 					{
 						//htmlタグをすべて取得
 						string html = sr.ReadToEnd();
-						//rtb_Mainのテキストに代入
-						//Price1.Text = html;
-
+						
 						//文字抜き出し処理:1st
 						string strT1 = "from: \""; //cheapestPrice:
 						string strB1 = "\"";
@@ -100,6 +98,11 @@ namespace Web2geter
 		}
 
 		private void Save1_Click(object sender, EventArgs e)
+		{
+
+		}
+
+		private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
 		{
 
 		}
