@@ -8,8 +8,8 @@ namespace Web2geter
 {
 	public partial class form_Main : Form
 	{
-		//WebClient型のインスタンス化
-		WebClient wc = new WebClient();
+		String filename = "None";
+		String hPrice = "None";
 
 		public form_Main()
 		{
@@ -18,9 +18,10 @@ namespace Web2geter
 
 		private void button1_Click(object sender, EventArgs e)
 		{
-
 			Price1.Text = AgodaGetPrice(tb_html1.Text);
-			DateTime.Now.ToString("s");//取得日時
+			filename = DateTime.Now.ToString("s");//取得日時
+			filename = filename.Replace("T", ",");
+			day1.Text = filename;
 		}
 
 		//価格取得メソッド
@@ -29,7 +30,10 @@ namespace Web2geter
 		{
 			string Sok;
 			string Smiss;
-			//例外処理
+
+			//WebClient型のインスタンス化
+			WebClient wc = new WebClient();
+
 			try
 			{
 				//OpenReadメソッドでリソースを取得するためのStreamインスタンスを作成
@@ -53,11 +57,10 @@ namespace Web2geter
 							Smiss = "Miss!\r\n入力し直してください。";
 							return Smiss;
 						}
-						else
-						{
-							Sok = "\\" + strTrim;
 						
-						}
+						hPrice = strTrim.Replace(",","");
+						Sok = "\\" + strTrim;
+						
 					}
 				}
 			}
@@ -98,6 +101,11 @@ namespace Web2geter
 			return s; //戻り値
 		}
 
+		/// <summary>
+		/// csv.Fileの保存
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 
 		private void Del1_Click(object sender, EventArgs e)
 		{
@@ -111,9 +119,29 @@ namespace Web2geter
 
 		private void Save1_Click(object sender, EventArgs e)
 		{
+			string S = "Save";
+			if (!Directory.Exists(S)){
+				Directory.CreateDirectory(S);
+			}
+			try
+			{
+				filename = filename.Substring(0, 10);
+				string csvfile = filename + ".csv";
+				string filePath = Path.Combine(S, csvfile);
+				
+				StreamWriter sw = null;
+				sw = new StreamWriter(filePath, true, Encoding.Default);//Encoding.ASCII
+				sw.Write("{0},{1}\r\n", hPrice, day1);
+				sw.Close();
 
+				MessageBox.Show("完了", "完了。", MessageBoxButtons.OK,
+					MessageBoxIcon.None);
+			}
+			catch(Exception ex)
+			{
+				MessageBox.Show(ex.Message, "エラー",MessageBoxButtons.OK,
+					MessageBoxIcon.Error);
+			}
 		}
-
-	
 	}
 }

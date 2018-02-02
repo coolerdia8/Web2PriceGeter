@@ -37,11 +37,12 @@
 			this.Save1 = new System.Windows.Forms.Button();
 			this.comboBox1 = new System.Windows.Forms.ComboBox();
 			this.button2 = new System.Windows.Forms.Button();
+			this.day1 = new System.Windows.Forms.TextBox();
 			this.SuspendLayout();
 			// 
 			// button1
 			// 
-			this.button1.Location = new System.Drawing.Point(373, 84);
+			this.button1.Location = new System.Drawing.Point(314, 84);
 			this.button1.Name = "button1";
 			this.button1.Size = new System.Drawing.Size(52, 23);
 			this.button1.TabIndex = 0;
@@ -59,7 +60,7 @@
 			// 
 			// Price1
 			// 
-			this.Price1.Location = new System.Drawing.Point(194, 84);
+			this.Price1.Location = new System.Drawing.Point(194, 57);
 			this.Price1.Multiline = true;
 			this.Price1.Name = "Price1";
 			this.Price1.ReadOnly = true;
@@ -98,7 +99,7 @@
 			// 
 			// Save1
 			// 
-			this.Save1.Location = new System.Drawing.Point(314, 84);
+			this.Save1.Location = new System.Drawing.Point(373, 84);
 			this.Save1.Name = "Save1";
 			this.Save1.Size = new System.Drawing.Size(52, 23);
 			this.Save1.TabIndex = 6;
@@ -111,7 +112,7 @@
 			this.comboBox1.FormattingEnabled = true;
 			this.comboBox1.Location = new System.Drawing.Point(25, 73);
 			this.comboBox1.Name = "comboBox1";
-			this.comboBox1.Size = new System.Drawing.Size(131, 20);
+			this.comboBox1.Size = new System.Drawing.Size(105, 20);
 			this.comboBox1.TabIndex = 7;
 			// 
 			// button2
@@ -123,11 +124,19 @@
 			this.button2.Text = "追加";
 			this.button2.UseVisualStyleBackColor = true;
 			// 
+			// day1
+			// 
+			this.day1.Location = new System.Drawing.Point(182, 88);
+			this.day1.Name = "day1";
+			this.day1.Size = new System.Drawing.Size(117, 19);
+			this.day1.TabIndex = 9;
+			// 
 			// form_Main
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(495, 353);
+			this.Controls.Add(this.day1);
 			this.Controls.Add(this.button2);
 			this.Controls.Add(this.comboBox1);
 			this.Controls.Add(this.Save1);
@@ -155,6 +164,7 @@
 		private System.Windows.Forms.Button Save1;
 		private System.Windows.Forms.ComboBox comboBox1;
 		private System.Windows.Forms.Button button2;
+		private System.Windows.Forms.TextBox day1;
 	}
 }
 
