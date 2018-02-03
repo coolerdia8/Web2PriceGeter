@@ -110,6 +110,7 @@ namespace Web2geter
 		private void Del1_Click(object sender, EventArgs e)
 		{
 			Price1.Text = "";
+			day1.Text = "";
 		}
 
 		private void URL_Clear_Click(object sender, EventArgs e)
@@ -131,7 +132,7 @@ namespace Web2geter
 				
 				StreamWriter sw = null;
 				sw = new StreamWriter(filePath, true, Encoding.Default);//Encoding.ASCII
-				sw.Write("{0},{1}\r\n", hPrice, day1);
+				sw.Write("{0},{1}\r\n", hPrice, day1.Text);
 				sw.Close();
 
 				MessageBox.Show("完了", "完了。", MessageBoxButtons.OK,
