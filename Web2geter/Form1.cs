@@ -5,8 +5,6 @@ namespace Web2geter
 {
 	public partial class form_Main : Form
 	{
-		String filename = "None";
-
 		GetHotelInfo hotelInfo = new GetHotelInfo();
 
 		public form_Main()
@@ -17,9 +15,7 @@ namespace Web2geter
 		public void button1_Click(object sender, EventArgs e)
 		{
 			Price1.Text = hotelInfo.AgodaGetPrice(tb_html1.Text);
-			filename = DateTime.Now.ToString("s");//取得日時
-			filename = filename.Replace("T", ",");
-			day1.Text = filename;
+			day1.Text = hotelInfo.GetDay();			
 		}
 
 		private void Del1_Click(object sender, EventArgs e)
@@ -35,7 +31,7 @@ namespace Web2geter
 
 		private void Save1_Click(object sender, EventArgs e)
 		{
-			hotelInfo.CsvFileSave(filename, day1.Text);
+			hotelInfo.CsvFileSave(day1.Text);
 		}
 	}
 }

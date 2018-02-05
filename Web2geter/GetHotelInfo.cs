@@ -8,8 +8,9 @@ namespace Web2geter
 {
 	public partial class GetHotelInfo
 	{
-		String hPrice = "None";		
-
+		String hPrice = "None";
+		String filename = "None";
+		
 		//価格取得メソッド
 		//引数：URL
 		public string AgodaGetPrice(string tb_html)
@@ -87,12 +88,20 @@ namespace Web2geter
 			return s; //戻り値
 		}
 
+		public string GetDay()
+		{
+			string date = DateTime.Now.ToString("s");//取得日時
+			date = date.Replace("T", ",");
+			filename = date;
+			return date;
+		}
+
 		/// <summary>
 		/// csv.Fileの保存
 		/// </summary>
 		/// <param name="sender"></param>
 		/// <param name="e"></param>
-		public bool CsvFileSave(string filename, string day)
+		public bool CsvFileSave(string day)
 		{
 			string S = "Save";
 			if (!Directory.Exists(S))
