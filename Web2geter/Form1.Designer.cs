@@ -37,7 +37,8 @@
 			this.Save1 = new System.Windows.Forms.Button();
 			this.comboBox1 = new System.Windows.Forms.ComboBox();
 			this.button2 = new System.Windows.Forms.Button();
-			this.day1 = new System.Windows.Forms.TextBox();
+			this.text = new System.Windows.Forms.TextBox();
+			this.day1 = new System.Windows.Forms.Label();
 			this.SuspendLayout();
 			// 
 			// button1
@@ -124,12 +125,21 @@
 			this.button2.Text = "追加";
 			this.button2.UseVisualStyleBackColor = true;
 			// 
+			// text
+			// 
+			this.text.Location = new System.Drawing.Point(182, 121);
+			this.text.Name = "text";
+			this.text.Size = new System.Drawing.Size(117, 19);
+			this.text.TabIndex = 9;
+			// 
 			// day1
 			// 
-			this.day1.Location = new System.Drawing.Point(182, 88);
+			this.day1.AutoSize = true;
+			this.day1.Location = new System.Drawing.Point(182, 94);
 			this.day1.Name = "day1";
-			this.day1.Size = new System.Drawing.Size(117, 19);
-			this.day1.TabIndex = 9;
+			this.day1.Size = new System.Drawing.Size(29, 12);
+			this.day1.TabIndex = 10;
+			this.day1.Text = "日時";
 			// 
 			// form_Main
 			// 
@@ -137,6 +147,7 @@
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(495, 353);
 			this.Controls.Add(this.day1);
+			this.Controls.Add(this.text);
 			this.Controls.Add(this.button2);
 			this.Controls.Add(this.comboBox1);
 			this.Controls.Add(this.Save1);
@@ -164,7 +175,8 @@
 		private System.Windows.Forms.Button Save1;
 		private System.Windows.Forms.ComboBox comboBox1;
 		private System.Windows.Forms.Button button2;
-		private System.Windows.Forms.TextBox day1;
+		private System.Windows.Forms.TextBox text;
+		private System.Windows.Forms.Label day1;
 	}
 }
 
