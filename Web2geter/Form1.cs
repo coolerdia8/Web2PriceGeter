@@ -15,7 +15,8 @@ namespace Web2geter
 		public void button1_Click(object sender, EventArgs e)
 		{
 			Price1.Text = hotelInfo.AgodaGetPrice(tb_html1.Text);
-			day1.Text = hotelInfo.GetDay();			
+			day1.Text = hotelInfo.GetDay();
+			Name1.Text = hotelInfo.HotelName(tb_html1.Text);
 		}
 
 		private void Del1_Click(object sender, EventArgs e)

@@ -88,19 +88,29 @@ namespace Web2geter
 			return s; //戻り値
 		}
 
+		//取得日時
 		public string GetDay()
 		{
-			string date = DateTime.Now.ToString("s");//取得日時
+			string date = DateTime.Now.ToString("s");
 			date = date.Replace("T", ",");
 			filename = date;
 			return date;
 		}
 
+		//文字抜き出し処理: ホテル名
+		public string HotelName(string html)
+		{			
+			string strTH = "jp/";
+			string strBH = "/hotel";
+			string strHotel = "";
+			strHotel = GetBetweenStrings(strTH, strBH, html);
+			return strHotel;
+		}
+
 		/// <summary>
 		/// csv.Fileの保存
 		/// </summary>
-		/// <param name="sender"></param>
-		/// <param name="e"></param>
+		/// <param name="day"></param>
 		public bool CsvFileSave(string day)
 		{
 			string S = "Save";
