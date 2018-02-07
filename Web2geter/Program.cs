@@ -1,7 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Web2geter
@@ -16,7 +13,7 @@ namespace Web2geter
 		{
 			Application.EnableVisualStyles();
 			Application.SetCompatibleTextRenderingDefault(false);
-			Application.Run(new form_Main());
+			Application.Run(new FormMain());
 		}
 	}
 }

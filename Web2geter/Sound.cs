@@ -17,7 +17,7 @@ namespace Web2geter
         public void PlaySound()
         {
             _player = new SoundPlayer(SoundFile);
-            _player.Play();
+            _player.PlaySync();
         }
     }
 }

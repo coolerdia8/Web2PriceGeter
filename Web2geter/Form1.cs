@@ -3,12 +3,12 @@ using System.Windows.Forms;
 
 namespace Web2geter
 {
-	public partial class form_Main : Form
+	public partial class FormMain : Form
 	{
 		GetHotelInfo hotelInfo = new GetHotelInfo();
 	    readonly Sound _sound = new Sound();
         
-        public form_Main()
+        public FormMain()
 		{
 			InitializeComponent();
 		}
@@ -16,12 +16,11 @@ namespace Web2geter
 		public void button1_Click(object sender, EventArgs e)
 		{
 			Price1.Text = hotelInfo.AgodaGetPrice(tb_html1.Text);
+		    day1.Text = hotelInfo.GetDay();
+			Name1.Text = hotelInfo.HotelName(tb_html1.Text);
 		    _sound.PlaySound();
 		    _sound.StopSound();
-
-            day1.Text = hotelInfo.GetDay();
-			Name1.Text = hotelInfo.HotelName(tb_html1.Text);
-		}
+        }
 
 		private void Del1_Click(object sender, EventArgs e)
 		{

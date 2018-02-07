@@ -65,17 +65,15 @@ namespace Web2geter
 		//引数：1つ目の文字、2つ目の文字、原文
 		public string GetBetweenStrings(string str1, string str2, string orgStr)
 		{
-			int str1Len = str1.Length; //str1の長さ
+            string s = ""; //返す文字列(トリムされた文字)
 
-			int str1Num = orgStr.IndexOf(str1); //str1が原文のどの位置にあるか
-
-			string s = ""; //返す文字列(トリムされた文字)
-
-			//例外処理
-			try
+            //例外処理
+            try
 			{
-				s = orgStr.Remove(0, str1Num + str1Len); //原文の初めからstr1のある位置まで削除
-				int str2Num = s.IndexOf(str2); //str2がsのどの位置にあるか
+                int str1Len = str1.Length; //str1の長さ
+                int str1Num = orgStr.IndexOf(str1); //str1が原文のどの位置にあるか
+                s = orgStr.Remove(0, str1Num + str1Len); //原文の初めからstr1のある位置まで削除
+                int str2Num = s.IndexOf(str2); //str2がsのどの位置にあるか
 				s = s.Remove(str2Num); //sのstr2のある位置から最後まで削除
 			}
 			catch (Exception)
@@ -83,8 +81,7 @@ namespace Web2geter
 				s = "トリムできませんでした。";
 				return s;
 			}
-
-			return s; //戻り値
+            return s; //戻り値
 		}
 
 		//取得日時
@@ -137,6 +134,5 @@ namespace Web2geter
 			}
 			return true;
 		}
-	
 	}
 }

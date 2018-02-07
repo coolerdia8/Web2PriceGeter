@@ -1,6 +1,6 @@
 ﻿namespace Web2geter
 {
-	partial class form_Main
+	partial class FormMain
 	{
 		/// <summary>
 		/// 必要なデザイナー変数です。
@@ -166,7 +166,7 @@
 			this.Controls.Add(this.Price1);
 			this.Controls.Add(this.tb_html1);
 			this.Controls.Add(this.button1);
-			this.Name = "form_Main";
+			this.Name = "FormMain";
 			this.Text = "Webから取得";
 			this.ResumeLayout(false);
 			this.PerformLayout();
