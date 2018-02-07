@@ -6,8 +6,9 @@ namespace Web2geter
 	public partial class form_Main : Form
 	{
 		GetHotelInfo hotelInfo = new GetHotelInfo();
-
-		public form_Main()
+	    readonly Sound _sound = new Sound();
+        
+        public form_Main()
 		{
 			InitializeComponent();
 		}
@@ -15,7 +16,10 @@ namespace Web2geter
 		public void button1_Click(object sender, EventArgs e)
 		{
 			Price1.Text = hotelInfo.AgodaGetPrice(tb_html1.Text);
-			day1.Text = hotelInfo.GetDay();
+		    _sound.PlaySound();
+		    _sound.StopSound();
+
+            day1.Text = hotelInfo.GetDay();
 			Name1.Text = hotelInfo.HotelName(tb_html1.Text);
 		}
 
