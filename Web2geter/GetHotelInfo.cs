@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace Web2geter
 {
-	public partial class GetHotelInfo
+	public class GetHotelInfo
 	{
 		String hPrice = "None";
 		String filename = "None";
@@ -65,7 +65,6 @@ namespace Web2geter
 		//引数：1つ目の文字、2つ目の文字、原文
 		public string GetBetweenStrings(string str1, string str2, string orgStr)
 		{
-			int orgLen = orgStr.Length; //原文の文字列の長さ
 			int str1Len = str1.Length; //str1の長さ
 
 			int str1Num = orgStr.IndexOf(str1); //str1が原文のどの位置にあるか
@@ -113,19 +112,18 @@ namespace Web2geter
 		/// <param name="day"></param>
 		public bool CsvFileSave(string day)
 		{
-			string S = "Save";
-			if (!Directory.Exists(S))
+			string s = "Save";
+			if (!Directory.Exists(s))
 			{
-				Directory.CreateDirectory(S);
+				Directory.CreateDirectory(s);
 			}
 			try
 			{
 				filename = filename.Substring(0, 10);
 				string csvfile = filename + ".csv";
-				string filePath = Path.Combine(S, csvfile);
+				string filePath = Path.Combine(s, csvfile);
 
-				StreamWriter sw = null;
-				sw = new StreamWriter(filePath, true, Encoding.Default);
+			    var sw = new StreamWriter(filePath, true, Encoding.Default);
 				sw.Write("{0},{1}\r\n", hPrice, day);
 				sw.Close();
 
