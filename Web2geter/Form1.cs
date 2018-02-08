@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
+using Microsoft.VisualBasic;
 
 namespace Web2geter
 {
@@ -17,8 +18,8 @@ namespace Web2geter
 		{
 			Price1.Text = hotelInfo.AgodaGetPrice(tb_html1.Text);
 		    day1.Text = hotelInfo.GetDay();
-			Name1.Text = hotelInfo.HotelName(tb_html1.Text);
-		    _sound.PlaySound();
+            Name1.Text = hotelInfo.HotelName(tb_html1.Text);
+            _sound.PlaySound();
 		    _sound.StopSound();
         }
 
@@ -37,5 +38,11 @@ namespace Web2geter
 		{
 			hotelInfo.CsvFileSave(day1.Text);
 		}
-	}
+
+        private void URLSave_Click(object sender, EventArgs e)
+        {
+            string uInput = Interaction.InputBox("ホテル名を入力", "URL保存");
+            comboBox1.Items.Add(Text = uInput);
+        }
+    }
 }
