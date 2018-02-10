@@ -36,7 +36,7 @@
             this.URL_Clear = new System.Windows.Forms.Button();
             this.Save1 = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.button2 = new System.Windows.Forms.Button();
+            this.URLAdd = new System.Windows.Forms.Button();
             this.text = new System.Windows.Forms.TextBox();
             this.day1 = new System.Windows.Forms.Label();
             this.Name1 = new System.Windows.Forms.TextBox();
@@ -118,14 +118,15 @@
             this.comboBox1.Size = new System.Drawing.Size(105, 20);
             this.comboBox1.TabIndex = 7;
             // 
-            // button2
+            // URLAdd
             // 
-            this.button2.Location = new System.Drawing.Point(25, 119);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(52, 23);
-            this.button2.TabIndex = 8;
-            this.button2.Text = "追加";
-            this.button2.UseVisualStyleBackColor = true;
+            this.URLAdd.Location = new System.Drawing.Point(25, 119);
+            this.URLAdd.Name = "URLAdd";
+            this.URLAdd.Size = new System.Drawing.Size(52, 23);
+            this.URLAdd.TabIndex = 8;
+            this.URLAdd.Text = "追加";
+            this.URLAdd.UseVisualStyleBackColor = true;
+            this.URLAdd.Click += new System.EventHandler(this.URLadd_Click);
             // 
             // text
             // 
@@ -170,7 +171,7 @@
             this.Controls.Add(this.Name1);
             this.Controls.Add(this.day1);
             this.Controls.Add(this.text);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.URLAdd);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.Save1);
             this.Controls.Add(this.URL_Clear);
@@ -196,7 +197,7 @@
 		private System.Windows.Forms.Button URL_Clear;
 		private System.Windows.Forms.Button Save1;
 		private System.Windows.Forms.ComboBox comboBox1;
-		private System.Windows.Forms.Button button2;
+		private System.Windows.Forms.Button URLAdd;
 		private System.Windows.Forms.TextBox text;
 		private System.Windows.Forms.Label day1;
 		private System.Windows.Forms.TextBox Name1;
