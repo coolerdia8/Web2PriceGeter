@@ -6,7 +6,7 @@ using System.Windows.Forms;
 
 namespace Web2geter
 {
-	public class GetHotelInfo
+	public class GetAgodaInfo
 	{
 		String hPrice = "None";
 		String filename = "None";

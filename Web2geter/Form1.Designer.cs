@@ -41,6 +41,7 @@
             this.day1 = new System.Windows.Forms.Label();
             this.Name1 = new System.Windows.Forms.TextBox();
             this.URLSave = new System.Windows.Forms.Button();
+            this.URLSet = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -113,14 +114,14 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(25, 73);
+            this.comboBox1.Location = new System.Drawing.Point(25, 94);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(105, 20);
             this.comboBox1.TabIndex = 7;
             // 
             // URLAdd
             // 
-            this.URLAdd.Location = new System.Drawing.Point(25, 119);
+            this.URLAdd.Location = new System.Drawing.Point(25, 58);
             this.URLAdd.Name = "URLAdd";
             this.URLAdd.Size = new System.Drawing.Size(52, 23);
             this.URLAdd.TabIndex = 8;
@@ -162,11 +163,22 @@
             this.URLSave.UseVisualStyleBackColor = true;
             this.URLSave.Click += new System.EventHandler(this.URLSave_Click);
             // 
+            // URLSet
+            // 
+            this.URLSet.Location = new System.Drawing.Point(25, 121);
+            this.URLSet.Name = "URLSet";
+            this.URLSet.Size = new System.Drawing.Size(70, 23);
+            this.URLSet.TabIndex = 13;
+            this.URLSet.Text = "URL読込";
+            this.URLSet.UseVisualStyleBackColor = true;
+            this.URLSet.Click += new System.EventHandler(this.URLSet_Click);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(495, 353);
+            this.Controls.Add(this.URLSet);
             this.Controls.Add(this.URLSave);
             this.Controls.Add(this.Name1);
             this.Controls.Add(this.day1);
@@ -202,6 +214,7 @@
 		private System.Windows.Forms.Label day1;
 		private System.Windows.Forms.TextBox Name1;
         private System.Windows.Forms.Button URLSave;
+        private System.Windows.Forms.Button URLSet;
     }
 }
 

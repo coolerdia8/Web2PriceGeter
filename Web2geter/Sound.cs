@@ -4,7 +4,7 @@ namespace Web2geter
     public class Sound
     {
         private SoundPlayer _player;
-        string SoundFile = @"A:\効果音\snake.wav";
+        //string SoundFile = @"A:\効果音\snake.wav";
 
         public void StopSound()
         {
@@ -16,7 +16,7 @@ namespace Web2geter
 
         public void PlaySound()
         {
-            _player = new SoundPlayer(SoundFile);
+            _player = new SoundPlayer(Properties.Resources.end);
             _player.PlaySync();
         }
     }

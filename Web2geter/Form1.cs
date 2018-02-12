@@ -7,7 +7,7 @@ namespace Web2geter
 {
 	public partial class FormMain : Form
 	{
-		GetHotelInfo hotelInfo = new GetHotelInfo();
+		GetAgodaInfo _agodaInfo = new GetAgodaInfo();
 	    readonly Sound _sound = new Sound();
 
         public class ItemSet
@@ -46,9 +46,9 @@ namespace Web2geter
 
 		public void button1_Click(object sender, EventArgs e)
 		{
-			Price1.Text = hotelInfo.AgodaGetPrice(tb_html1.Text);
-		    day1.Text = hotelInfo.GetDay();
-            Name1.Text = hotelInfo.HotelName(tb_html1.Text);
+			Price1.Text = _agodaInfo.AgodaGetPrice(tb_html1.Text);
+		    day1.Text = _agodaInfo.GetDay();
+            Name1.Text = _agodaInfo.HotelName(tb_html1.Text);
             _sound.PlaySound();
 		    _sound.StopSound();
         }
@@ -66,21 +66,32 @@ namespace Web2geter
 
 		private void Save1_Click(object sender, EventArgs e)
 		{
-			hotelInfo.CsvFileSave(day1.Text);
+			_agodaInfo.CsvFileSave(day1.Text);
 		}
 
         private void URLSave_Click(object sender, EventArgs e)
         {
             string uInput = Interaction.InputBox("ホテル名を入力", "URL保存");
-            comboBox1.Items.Add(Text = uInput);
+            //comboBox1.Items.Add(Text = uInput);
+        }
+
+	    private void URLSet_Click(object sender, EventArgs e)
+	    {
+	        var hSetUrl = new SetURL("test.txt");
+	        var setUrldDictionary = hSetUrl.SetUrldDictionary();
+	        foreach (var obj in setUrldDictionary)
+	        {
+	            Console.WriteLine("{0} {1}", obj.Key, obj.Value);
+	            comboBox1.Items.Add(Text = obj.Key);
+            }
         }
 
         private void URLadd_Click(object sender, EventArgs e)
         {
             ItemSet tmp = ((ItemSet)comboBox1.SelectedItem);//表示名はキャストして取りだす
-            tb_html1.Text = tmp.ItemDisp;
+            tb_html1.Text = tmp.ItemUrl;
         }
 
-     
+        
     }
 }
