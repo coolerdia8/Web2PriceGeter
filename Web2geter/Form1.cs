@@ -31,7 +31,7 @@ namespace Web2geter
 
 	    public void SetUrl2Box()
 	    {
-	        var hSetUrl = new SetURL("test.txt");
+	        var hSetUrl = new SetURL("HotelInfo.csv");
 	        var setUrldDictionary = hSetUrl.SetUrldDictionary();
 
 	        // List インターフェイスまたは IListSource インターフェイスを実装する、DataSet または Array などのオブジェクト。
@@ -86,7 +86,7 @@ namespace Web2geter
 
         private void URLadd_Click(object sender, EventArgs e)
         {
-            ItemSet tmp = ((ItemSet)comboBox1.SelectedItem);//表示名はキャストして取りだす
+            ItemSet tmp = (ItemSet)comboBox1.SelectedItem;//表示名はキャストして取りだす
             tb_html1.Text = tmp.ItemUrl;
         }
 

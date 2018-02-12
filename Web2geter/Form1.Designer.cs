@@ -37,7 +37,6 @@
             this.Save1 = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.URLAdd = new System.Windows.Forms.Button();
-            this.text = new System.Windows.Forms.TextBox();
             this.day1 = new System.Windows.Forms.Label();
             this.Name1 = new System.Windows.Forms.TextBox();
             this.URLSave = new System.Windows.Forms.Button();
@@ -64,12 +63,13 @@
             // 
             // Price1
             // 
-            this.Price1.Location = new System.Drawing.Point(194, 57);
+            this.Price1.Location = new System.Drawing.Point(261, 84);
             this.Price1.Multiline = true;
             this.Price1.Name = "Price1";
             this.Price1.ReadOnly = true;
             this.Price1.Size = new System.Drawing.Size(105, 23);
             this.Price1.TabIndex = 2;
+            this.Price1.Text = "ここに価格";
             // 
             // Del1
             // 
@@ -125,21 +125,14 @@
             this.URLAdd.Name = "URLAdd";
             this.URLAdd.Size = new System.Drawing.Size(52, 23);
             this.URLAdd.TabIndex = 8;
-            this.URLAdd.Text = "追加";
+            this.URLAdd.Text = "↑追加";
             this.URLAdd.UseVisualStyleBackColor = true;
             this.URLAdd.Click += new System.EventHandler(this.URLadd_Click);
-            // 
-            // text
-            // 
-            this.text.Location = new System.Drawing.Point(146, 121);
-            this.text.Name = "text";
-            this.text.Size = new System.Drawing.Size(77, 19);
-            this.text.TabIndex = 9;
             // 
             // day1
             // 
             this.day1.AutoSize = true;
-            this.day1.Location = new System.Drawing.Point(182, 94);
+            this.day1.Location = new System.Drawing.Point(151, 94);
             this.day1.Name = "day1";
             this.day1.Size = new System.Drawing.Size(29, 12);
             this.day1.TabIndex = 10;
@@ -147,9 +140,9 @@
             // 
             // Name1
             // 
-            this.Name1.Location = new System.Drawing.Point(325, 115);
+            this.Name1.Location = new System.Drawing.Point(291, 115);
             this.Name1.Name = "Name1";
-            this.Name1.Size = new System.Drawing.Size(100, 19);
+            this.Name1.Size = new System.Drawing.Size(134, 19);
             this.Name1.TabIndex = 11;
             // 
             // URLSave
@@ -182,7 +175,6 @@
             this.Controls.Add(this.URLSave);
             this.Controls.Add(this.Name1);
             this.Controls.Add(this.day1);
-            this.Controls.Add(this.text);
             this.Controls.Add(this.URLAdd);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.Save1);
@@ -210,7 +202,6 @@
 		private System.Windows.Forms.Button Save1;
 		private System.Windows.Forms.ComboBox comboBox1;
 		private System.Windows.Forms.Button URLAdd;
-		private System.Windows.Forms.TextBox text;
 		private System.Windows.Forms.Label day1;
 		private System.Windows.Forms.TextBox Name1;
         private System.Windows.Forms.Button URLSave;
