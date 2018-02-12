@@ -38,10 +38,7 @@ namespace Web2geter
             List<ItemSet> src = new List<ItemSet>();
             foreach (var obj in setUrldDictionary)
 	        {
-	            Console.WriteLine("{0} {1}", obj.Key, obj.Value);
-	            //comboBox1.Items.Add(obj.Key);
-                
-	            src.Add(new ItemSet(obj.Key, obj.Value));
+	           src.Add(new ItemSet(obj.Key, obj.Value));
 	        }
 	        // ComboBoxに表示と値をセット
 	        comboBox1.DataSource = src;
