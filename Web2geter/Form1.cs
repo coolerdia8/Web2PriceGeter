@@ -49,10 +49,11 @@ namespace Web2geter
         public void button1_Click(object sender, EventArgs e)
 		{
 			Price1.Text = _agodaInfo.AgodaGetPrice(tb_html1.Text);
-		    day1.Text = _agodaInfo.GetDay();
-            Name1.Text = _agodaInfo.HotelName(tb_html1.Text);
-            _sound.PlaySound();
+		    _sound.PlaySound();
 		    _sound.StopSound();
+            day1.Text = _agodaInfo.GetDay();
+            Name1.Text = _agodaInfo.HotelName(tb_html1.Text);
+            
         }
 
 		private void Del1_Click(object sender, EventArgs e)
