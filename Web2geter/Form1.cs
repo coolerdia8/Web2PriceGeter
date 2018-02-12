@@ -10,6 +10,11 @@ namespace Web2geter
 		GetAgodaInfo _agodaInfo = new GetAgodaInfo();
 	    readonly Sound _sound = new Sound();
 
+	    public FormMain()
+	    {
+	        InitializeComponent();
+	    }
+
         public class ItemSet
         {
             // DisplayMemberとValueMemberにはプロパティで指定する仕組み
@@ -22,11 +27,6 @@ namespace Web2geter
                 ItemDisp = s;
                 ItemUrl = u;
             }
-        }
-
-        public FormMain()
-		{
-			InitializeComponent();
         }
 
 	    public void SetUrl2Box()
@@ -74,7 +74,6 @@ namespace Web2geter
         private void URLSave_Click(object sender, EventArgs e)
         {
             string uInput = Interaction.InputBox("ホテル名を入力", "URL保存");
-            //comboBox1.Items.Add(Text = uInput);
         }
 
 	    private void URLSet_Click(object sender, EventArgs e)
