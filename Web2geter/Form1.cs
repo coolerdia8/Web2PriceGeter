@@ -17,7 +17,7 @@ namespace Web2geter
             public String ItemUrl { get; set; }
 
             // プロパティをコンストラクタでセット
-            public ItemSet(String u, String s)
+            public ItemSet(String s, String u)
             {
                 ItemDisp = s;
                 ItemUrl = u;
@@ -27,24 +27,29 @@ namespace Web2geter
         public FormMain()
 		{
 			InitializeComponent();
-
-		    // ComboBox用データ作成 //ListでOK //IList インターフェイスまたは IListSource インターフェイスを実装する、DataSet または Array などのオブジェクト。
-		    List<ItemSet> src = new List<ItemSet>();
-		    src.Add(new ItemSet("http", "Number1"));/// 1つでItem１つ分となる
-		    //src.Add(new ItemSet(200, "Number2"));
-		    //src.Add(new ItemSet(300, "Number3"));
-
-		    // ComboBoxに表示と値をセット
-		    comboBox1.DataSource = src;
-		    comboBox1.DisplayMember = "ItemDisp";
-		    comboBox1.ValueMember = "ItemUrl";
-
-		    // 初期値セット
-		    comboBox1.SelectedIndex = 0;
-		    //comboBox1_SelectedIndexChanged(null, null);
         }
 
-		public void button1_Click(object sender, EventArgs e)
+	    public void SetUrl2Box()
+	    {
+	        var hSetUrl = new SetURL("test.txt");
+	        var setUrldDictionary = hSetUrl.SetUrldDictionary();
+
+	        // List インターフェイスまたは IListSource インターフェイスを実装する、DataSet または Array などのオブジェクト。
+            List<ItemSet> src = new List<ItemSet>();
+            foreach (var obj in setUrldDictionary)
+	        {
+	            Console.WriteLine("{0} {1}", obj.Key, obj.Value);
+	            //comboBox1.Items.Add(obj.Key);
+                
+	            src.Add(new ItemSet(obj.Key, obj.Value));
+	        }
+	        // ComboBoxに表示と値をセット
+	        comboBox1.DataSource = src;
+	        comboBox1.DisplayMember = "ItemDisp";
+	        comboBox1.ValueMember = "ItemUrl";
+        }
+
+        public void button1_Click(object sender, EventArgs e)
 		{
 			Price1.Text = _agodaInfo.AgodaGetPrice(tb_html1.Text);
 		    day1.Text = _agodaInfo.GetDay();
@@ -77,13 +82,9 @@ namespace Web2geter
 
 	    private void URLSet_Click(object sender, EventArgs e)
 	    {
-	        var hSetUrl = new SetURL("test.txt");
-	        var setUrldDictionary = hSetUrl.SetUrldDictionary();
-	        foreach (var obj in setUrldDictionary)
-	        {
-	            Console.WriteLine("{0} {1}", obj.Key, obj.Value);
-	            comboBox1.Items.Add(Text = obj.Key);
-            }
+	        SetUrl2Box();
+	        
+            //MessageBox
         }
 
         private void URLadd_Click(object sender, EventArgs e)

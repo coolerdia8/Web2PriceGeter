@@ -121,7 +121,7 @@
             // 
             // URLAdd
             // 
-            this.URLAdd.Location = new System.Drawing.Point(25, 58);
+            this.URLAdd.Location = new System.Drawing.Point(23, 57);
             this.URLAdd.Name = "URLAdd";
             this.URLAdd.Size = new System.Drawing.Size(52, 23);
             this.URLAdd.TabIndex = 8;
@@ -165,7 +165,7 @@
             // 
             // URLSet
             // 
-            this.URLSet.Location = new System.Drawing.Point(25, 121);
+            this.URLSet.Location = new System.Drawing.Point(60, 121);
             this.URLSet.Name = "URLSet";
             this.URLSet.Size = new System.Drawing.Size(70, 23);
             this.URLSet.TabIndex = 13;
