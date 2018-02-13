@@ -15,35 +15,38 @@ namespace Web2geter
 	        InitializeComponent();
 	    }
 
-        public class ItemSet
-        {
-            // DisplayMemberとValueMemberにはプロパティで指定する仕組み
-            public String ItemDisp { get; set; }
-            public String ItemUrl { get; set; }
+	    public class HotelInfo
+	    {
+	        // 店舗名
+	        public string HotelName { get; set; }
+
+	        // 商品カテゴリ
+	        public string HotelURL { get; set; }
 
             // プロパティをコンストラクタでセット
-            public ItemSet(String s, String u)
-            {
-                ItemDisp = s;
-                ItemUrl = u;
+            public HotelInfo(String s, String u)
+	        {
+	            HotelName = s;
+	            HotelURL = u;
+                //throw new NotImplementedException();
             }
-        }
+	    }
 
 	    public void SetUrl2Box()
 	    {
 	        var hSetUrl = new SetURL("HotelInfo.csv");
-	        var setUrldDictionary = hSetUrl.SetUrldDictionary();
+	        //var setUrldDictionary = hSetUrl.SetUrldDictionary();
 
 	        // List インターフェイスまたは IListSource インターフェイスを実装する、DataSet または Array などのオブジェクト。
-            List<ItemSet> src = new List<ItemSet>();
-            foreach (var obj in setUrldDictionary)
+            List<HotelInfo> src = new List<HotelInfo>();
+            foreach (var obj in hSetUrl.FindAll("http"))
 	        {
-	           src.Add(new ItemSet(obj.Key, obj.Value));
+	           src.Add(new HotelInfo(obj.Key, obj.Value));
 	        }
 	        // ComboBoxに表示と値をセット
 	        comboBox1.DataSource = src;
-	        comboBox1.DisplayMember = "ItemDisp";
-	        comboBox1.ValueMember = "ItemUrl";
+	        comboBox1.DisplayMember = "HotelName";
+	        comboBox1.ValueMember = "HotelURL";
         }
 
         public void button1_Click(object sender, EventArgs e)
@@ -86,8 +89,8 @@ namespace Web2geter
 
         private void URLadd_Click(object sender, EventArgs e)
         {
-            ItemSet tmp = (ItemSet)comboBox1.SelectedItem;//表示名はキャストして取りだす
-            tb_html1.Text = tmp.ItemUrl;
+            HotelInfo tmp = (HotelInfo)comboBox1.SelectedItem;//表示名はキャストして取りだす
+            tb_html1.Text = tmp.HotelURL;
         }
 
         

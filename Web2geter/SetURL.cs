@@ -1,41 +1,26 @@
 ﻿using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 namespace Web2geter
 {
-
-    // 売り上げ集計クラス
+    // クラス
     public class SetURL {
-        private IEnumerable<HotelInfo> _hotelInfos;
-
+        private Dictionary<string, string> _dict = new Dictionary<string, string>();
+        //
         // コンストラクタ
         public SetURL(string filePath) {
-            _hotelInfos = ReadURLInfos(filePath);
-        }
-
-        // 売り上げデータを読み込み、Saleオブジェクトのリストを返す
-        private static IEnumerable<HotelInfo> ReadURLInfos(string filePath) {
-            var hotelInfos = new List<HotelInfo>();
             var lines = File.ReadAllLines(filePath);
-            foreach (var line in lines) {
-                var items = line.Split(',');
-                var hotelinfo = new HotelInfo {
-                    HotelName = items[0],
-                    HotelURL = items[1]
-                };
-                hotelInfos.Add(hotelinfo);
-            }
-            return hotelInfos;
+            _dict = lines.Select(line => line.Split(',')).ToDictionary(x => x[0], x => x[1]);
         }
 
-        // 
-        public IDictionary<string, string> SetUrldDictionary() {
-            var dict = new Dictionary<string, string>();
-            foreach (var hInfo in _hotelInfos) {
-                
-                    dict[hInfo.HotelName] = hInfo.HotelURL;
+        public IEnumerable<KeyValuePair<string, string>> FindAll(string subs)
+        {
+            foreach (var item in _dict)
+            {
+                if (item.Value.Contains(subs))
+                    yield return item;
             }
-            return dict;
         }
     }
 }
