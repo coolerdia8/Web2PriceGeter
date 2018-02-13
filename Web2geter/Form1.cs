@@ -34,7 +34,9 @@ namespace Web2geter
 
 	    public void SetUrl2Box()
 	    {
-	        var hSetUrl = new SetURL("HotelInfo.csv");
+	        string filePath = @"URLSave\HotelInfo.csv";
+
+            var hSetUrl = new SetURL(filePath);
 	        //var setUrldDictionary = hSetUrl.SetUrldDictionary();
 
 	        // List インターフェイスまたは IListSource インターフェイスを実装する、DataSet または Array などのオブジェクト。
@@ -78,6 +80,7 @@ namespace Web2geter
         private void URLSave_Click(object sender, EventArgs e)
         {
             string uInput = Interaction.InputBox("ホテル名を入力", "URL保存");
+            _agodaInfo.UrlSave(uInput, tb_html1.Text);
         }
 
 	    private void URLSet_Click(object sender, EventArgs e)

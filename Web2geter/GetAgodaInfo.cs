@@ -114,13 +114,13 @@ namespace Web2geter
 			{
 				Directory.CreateDirectory(s);
 			}
-			try
-			{
-				filename = filename.Substring(0, 10);
-				string csvfile = filename + ".csv";
-				string filePath = Path.Combine(s, csvfile);
+		    filename = filename.Substring(0, 10);
+		    string csvfile = filename + ".csv";
+		    string filePath = Path.Combine(s, csvfile);
 
-			    var sw = new StreamWriter(filePath, true, Encoding.Default);
+            try
+			{
+				var sw = new StreamWriter(filePath, true, Encoding.Default);
 				sw.Write("{0},{1}\r\n", hPrice, day);
 				sw.Close();
 
@@ -134,5 +134,35 @@ namespace Web2geter
 			}
 			return true;
 		}
-	}
+
+	    public void UrlSave(string key,string url)
+	    {
+	        string s = "URLSave";
+	        if (!Directory.Exists(s))
+	        {
+	            Directory.CreateDirectory(s);
+	        }
+
+	        string filePath = @"URLSave\HotelInfo.csv";
+	        try
+	        {
+	            using (var stream = new FileStream(filePath, FileMode.Open, FileAccess.ReadWrite, FileShare.None))
+	            {
+	                using (var reader = new StreamReader(stream))
+	                using (var writer = new StreamWriter(stream, Encoding.Default))
+	                {
+	                    string texts = reader.ReadToEnd();
+	                    stream.Position = 0;
+	                    writer.WriteLine("{0},{1}", key, url);
+	                    writer.Write(texts);
+	                }
+	            }
+	        }
+	        catch (Exception ex)
+	        {
+	            MessageBox.Show(ex.Message, "エラー", MessageBoxButtons.OK,
+	                MessageBoxIcon.Error);
+	        }
+	    }
+    }
 }
