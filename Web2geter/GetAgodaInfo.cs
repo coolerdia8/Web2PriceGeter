@@ -1,63 +1,55 @@
 ﻿using System;
 using System.IO;
-using System.Net;
+using System.Net.Http;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
+
 
 namespace Web2geter
 {
 	public class GetAgodaInfo
 	{
-		String hPrice = "None";
+	    //HttpClient型のインスタンス化
+        private HttpClient hc = new HttpClient();
+        String hPrice = "None";
 		String filename = "None";
 		
 		//価格取得メソッド
 		//引数：URL
-		public string AgodaGetPrice(string tb_html)
+		public async Task <string> AgodaGetPrice(string tb_html)
 		{
 			string Sok;
 			string Smiss;
-
-			//WebClient型のインスタンス化
-			WebClient wc = new WebClient();
-
+            
 			try
 			{
-				//OpenReadメソッドでリソースを取得するためのStreamインスタンスを作成
-				using (Stream st = wc.OpenRead(tb_html))
+				//htmlタグをすべて取得
+			    var html = await hc.GetStringAsync(tb_html);
+
+                //文字抜き出し処理:1st
+			    string strT1 = "from: \""; 
+			    string strB1 = "\"";
+			    string strTrim = "";
+                
+                strTrim = GetBetweenStrings(strT1, strB1, html);
+
+				//rtb_Mainのテキストに代入
+				if (strTrim == "")
 				{
-					//StreamReaderクラスのインスタンスを作成（ストリームとエンコーディングを指定）
-					using (StreamReader sr = new StreamReader(st, Encoding.UTF8))
-					{
-						//htmlタグをすべて取得
-						string html = sr.ReadToEnd();
-
-						//文字抜き出し処理:1st
-						string strT1 = "from: \""; //cheapestPrice:
-						string strB1 = "\"";
-						string strTrim = "";
-						strTrim = GetBetweenStrings(strT1, strB1, html);
-
-						//rtb_Mainのテキストに代入
-						if (strTrim == "")
-						{
-							Smiss = "Miss!\r\n入力し直してください。";
-							return Smiss;
-						}
-
-						hPrice = strTrim.Replace(",", "");
-						Sok = "\\" + strTrim;
-
-					}
+					Smiss = "Miss!\r\n入力し直してください。";
+					return Smiss;
 				}
+
+				hPrice = strTrim.Replace(",", "");
+				Sok = "\\" + strTrim;
 			}
-			catch (Exception)
+			catch (HttpRequestException)
 			{
 				//URLが正しくないとき
 				Smiss = "URLが正しくない可能性があります。\r\n入力し直してください。";
 				return Smiss;
 			}
-
 			return Sok;
 		}
 
@@ -66,7 +58,7 @@ namespace Web2geter
 		public string GetBetweenStrings(string str1, string str2, string orgStr)
 		{
             string s = ""; //返す文字列(トリムされた文字)
-
+		
             //例外処理
             try
 			{

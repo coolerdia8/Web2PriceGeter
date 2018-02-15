@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.VisualBasic;
 
@@ -37,8 +38,7 @@ namespace Web2geter
 	        string filePath = @"URLSave\HotelInfo.csv";
 
             var hSetUrl = new SetURL(filePath);
-	        //var setUrldDictionary = hSetUrl.SetUrldDictionary();
-
+	        
 	        // List インターフェイスまたは IListSource インターフェイスを実装する、DataSet または Array などのオブジェクト。
             List<HotelInfo> src = new List<HotelInfo>();
             foreach (var obj in hSetUrl.FindAll("http"))
@@ -51,10 +51,11 @@ namespace Web2geter
 	        comboBox1.ValueMember = "HotelURL";
         }
 
-        public void button1_Click(object sender, EventArgs e)
+        public async void button1_Click(object sender, EventArgs e)
 		{
-			Price1.Text = _agodaInfo.AgodaGetPrice(tb_html1.Text);
-		    _sound.PlaySound();
+		    Price1.Text = await _agodaInfo.AgodaGetPrice(tb_html1.Text);
+		    
+            _sound.PlaySound();
 		    _sound.StopSound();
             day1.Text = _agodaInfo.GetDay();
             Name1.Text = _agodaInfo.HotelName(tb_html1.Text);
@@ -95,7 +96,5 @@ namespace Web2geter
             HotelInfo tmp = (HotelInfo)comboBox1.SelectedItem;//表示名はキャストして取りだす
             tb_html1.Text = tmp.HotelURL;
         }
-
-        
     }
 }
