@@ -10,7 +10,7 @@ namespace Web2geter
 	public class GetAgodaInfo
 	{
 	    //HttpClient型のインスタンス化
-        private HttpClient hc = new HttpClient();
+        private readonly HttpClient _hc = new HttpClient();
         String hPrice = "None";
 		String filename = "None";
 		
@@ -18,13 +18,12 @@ namespace Web2geter
 		//引数：URL
 		public async Task <string> AgodaGetPrice(string tb_html)
 		{
-			string Sok;
-			string Smiss;
-            
+			string Sok, Smiss;
+			
 			try
 			{
 				//htmlタグをすべて取得
-			    var html = await hc.GetStringAsync(tb_html);
+			    var html = await _hc.GetStringAsync(tb_html);
 
                 //文字抜き出し処理:1st
 			    string strT1 = "from: \""; 
@@ -79,9 +78,8 @@ namespace Web2geter
 		public string GetDay()
 		{
 			string date = DateTime.Now.ToString("s");
-			date = date.Replace("T", ",");
-			filename = date;
-			return date;
+		    filename = date.Replace("T", ",");
+			return filename;
 		}
 
 		//文字抜き出し処理: ホテル名
@@ -100,21 +98,22 @@ namespace Web2geter
 		/// <param name="day"></param>
 		public bool CsvFileSave(string day)
 		{
-			string s = "Save";
-			if (!Directory.Exists(s))
+			string csvsave = "Save";
+			if (!Directory.Exists(csvsave))
 			{
-				Directory.CreateDirectory(s);
+				Directory.CreateDirectory(csvsave);
 			}
 		    filename = filename.Substring(0, 10);
 		    string csvfile = filename + ".csv";
-		    string filePath = Path.Combine(s, csvfile);
+		    string filePath = Path.Combine(csvsave, csvfile);
 
             try
 			{
-				var sw = new StreamWriter(filePath, true, Encoding.Default);
-				sw.Write("{0},{1}\r\n", hPrice, day);
-				sw.Close();
-
+			    using (var sw = new StreamWriter(filePath, true, Encoding.Default))
+			    {
+			        sw.Write("{0},{1}\r\n", hPrice, day);
+			        sw.Close();
+                }
 				MessageBox.Show("完了", "完了。", MessageBoxButtons.OK,
 					MessageBoxIcon.None);
 			}
@@ -128,10 +127,10 @@ namespace Web2geter
 
 	    public void UrlSave(string key,string url)
 	    {
-	        string s = "URLSave";
-	        if (!Directory.Exists(s))
+	        string urlsave = "URLSave";
+	        if (!Directory.Exists(urlsave))
 	        {
-	            Directory.CreateDirectory(s);
+	            Directory.CreateDirectory(urlsave);
 	        }
 
 	        string filePath = @"URLSave\HotelInfo.csv";

@@ -53,7 +53,7 @@ namespace Web2geter
         public async void button1_Click(object sender, EventArgs e)
 		{
 		    Price1.Text = await _agodaInfo.AgodaGetPrice(tb_html1.Text);
-		    
+		     
             _sound.PlaySound();
 		    _sound.StopSound();
             day1.Text = _agodaInfo.GetDay();
@@ -85,7 +85,6 @@ namespace Web2geter
 	    private void URLSet_Click(object sender, EventArgs e)
 	    {
 	        SetUrl2Box();
-	        
             //MessageBox
         }
 
