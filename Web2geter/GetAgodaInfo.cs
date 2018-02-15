@@ -43,7 +43,7 @@ namespace Web2geter
 				hPrice = strTrim.Replace(",", "");
 				Sok = "\\" + strTrim;
 			}
-			catch (HttpRequestException)
+			catch (Exception)
 			{
 				//URLが正しくないとき
 				Smiss = "URLが正しくない可能性があります。\r\n入力し直してください。";

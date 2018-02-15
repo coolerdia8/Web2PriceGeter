@@ -1,12 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.VisualBasic;
 
 namespace Web2geter
 {
-	public partial class FormMain : Form
+    public partial class FormMain : Form
 	{
 		GetAgodaInfo _agodaInfo = new GetAgodaInfo();
 	    readonly Sound _sound = new Sound();
@@ -59,7 +58,6 @@ namespace Web2geter
 		    _sound.StopSound();
             day1.Text = _agodaInfo.GetDay();
             Name1.Text = _agodaInfo.HotelName(tb_html1.Text);
-            
         }
 
 		private void Del1_Click(object sender, EventArgs e)
