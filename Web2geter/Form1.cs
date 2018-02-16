@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Windows.Forms;
 using Microsoft.VisualBasic;
 
@@ -91,6 +92,12 @@ namespace Web2geter
         {
             HotelInfo tmp = (HotelInfo)comboBox1.SelectedItem;//表示名はキャストして取りだす
             tb_html1.Text = tmp.HotelURL;
+        }
+
+        private void OpenLog_Click(object sender, EventArgs e)
+        {
+            string filePath = @"C:\Users\Y.KATO\source\repos\Web2geter\log\";
+            Process.Start("notepad.exe",filePath + DateTime.Now.ToString("yyyyMMdd") + ".txt");
         }
     }
 }

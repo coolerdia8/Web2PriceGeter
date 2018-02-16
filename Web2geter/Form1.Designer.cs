@@ -42,6 +42,7 @@
             this.URLSave = new System.Windows.Forms.Button();
             this.URLSet = new System.Windows.Forms.Button();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
+            this.OpenLog = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -174,11 +175,22 @@
             this.progressBar1.Size = new System.Drawing.Size(100, 23);
             this.progressBar1.TabIndex = 14;
             // 
+            // OpenLog
+            // 
+            this.OpenLog.Location = new System.Drawing.Point(408, 142);
+            this.OpenLog.Name = "OpenLog";
+            this.OpenLog.Size = new System.Drawing.Size(75, 23);
+            this.OpenLog.TabIndex = 15;
+            this.OpenLog.Text = "ログ確認";
+            this.OpenLog.UseVisualStyleBackColor = true;
+            this.OpenLog.Click += new System.EventHandler(this.OpenLog_Click);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(495, 353);
+            this.Controls.Add(this.OpenLog);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.URLSet);
             this.Controls.Add(this.URLSave);
@@ -216,6 +228,7 @@
         private System.Windows.Forms.Button URLSave;
         private System.Windows.Forms.Button URLSet;
         private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.Button OpenLog;
     }
 }
 
