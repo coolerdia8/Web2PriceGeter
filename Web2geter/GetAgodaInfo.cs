@@ -23,13 +23,12 @@ namespace Web2geter
 			try
 			{
 				//htmlタグをすべて取得
-			    var html = await _hc.GetStringAsync(tb_html);
+			    string html = await _hc.GetStringAsync(tb_html);
 
                 //文字抜き出し処理:1st
 			    string strT1 = "from: \""; 
 			    string strB1 = "\"";
 			    string strTrim = "";
-                
                 strTrim = GetBetweenStrings(strT1, strB1, html);
 
 				//rtb_Mainのテキストに代入
@@ -77,9 +76,8 @@ namespace Web2geter
 		//取得日時
 		public string GetDay()
 		{
-			string date = DateTime.Now.ToString("s");
-		    filename = date.Replace("T", ",");
-			return filename;
+			filename = DateTime.Now.ToString("yyyy-MM-dd,hh:mm:ss");
+		    return filename;
 		}
 
 		//文字抜き出し処理: ホテル名

@@ -20,7 +20,6 @@ namespace Web2geter
 	        // 店舗名
 	        public string HotelName { get; set; }
 
-	        // 商品カテゴリ
 	        public string HotelURL { get; set; }
 
             // プロパティをコンストラクタでセット
