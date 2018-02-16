@@ -11,6 +11,7 @@ namespace Web2geter
 	{
 	    //HttpClient型のインスタンス化
         private readonly HttpClient _hc = new HttpClient();
+	    LogOutput _logOuput = new LogOutput();
         String hPrice = "None";
 		String filename = "None";
 		
@@ -41,13 +42,19 @@ namespace Web2geter
 				hPrice = strTrim.Replace(",", "");
 				Sok = "\\" + strTrim;
 			}
-			catch (Exception)
+			catch (Exception ex)
 			{
 				//URLが正しくないとき
 				Smiss = "URLが正しくない可能性があります。\r\n入力し直してください。";
-				return Smiss;
+			    _logOuput.OutputErrLog(ex);
+
+                return Smiss;
 			}
-			return Sok;
+            //ログ出力
+            const string outputPath = @"C:\Users\Y.KATO\source\repos\Web2geter\log\";
+            File.AppendAllText(outputPath + DateTime.Now.ToString("yyyyMMdd") + ".txt", "[" + DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss") + "] message: GetPrice SUCCESS!\r\n");
+
+            return Sok;
 		}
 
 		//2つの文字列の間の文字列を返すメソッド
@@ -65,10 +72,11 @@ namespace Web2geter
                 int str2Num = s.IndexOf(str2); //str2がsのどの位置にあるか
 				s = s.Remove(str2Num); //sのstr2のある位置から最後まで削除
 			}
-			catch (Exception)
+			catch (Exception ex)
 			{
 				s = "トリムできませんでした。";
-				return s;
+			    _logOuput.OutputErrLog(ex);
+                return s;
 			}
             return s; //戻り値
 		}
