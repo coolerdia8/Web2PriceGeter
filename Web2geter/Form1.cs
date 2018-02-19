@@ -57,8 +57,9 @@ namespace Web2geter
             _sound.PlaySound();
 		    _sound.StopSound();
             day1.Text = _agodaInfo.GetDay();
-            Name1.Text = _agodaInfo.HotelName(tb_html1.Text);
-        }
+            Name1.Text = _agodaInfo.GetHotelName(tb_html1.Text);
+		    //_agodaInfo.GetHotelCheckIO;
+		}
 
 		private void Del1_Click(object sender, EventArgs e)
 		{

@@ -206,6 +206,7 @@
             this.Controls.Add(this.tb_html1);
             this.Controls.Add(this.button1);
             this.Name = "FormMain";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Webから取得";
             this.ResumeLayout(false);
             this.PerformLayout();

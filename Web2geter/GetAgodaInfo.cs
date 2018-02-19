@@ -7,27 +7,27 @@ using System.Windows.Forms;
 
 namespace Web2geter
 {
-	public class GetAgodaInfo
+    public class GetAgodaInfo
 	{
 	    //HttpClient型のインスタンス化
         private readonly HttpClient _hc = new HttpClient();
 	    LogOutput _logOuput = new LogOutput();
         String hPrice = "None";
 		String filename = "None";
-		
+
 		//価格取得メソッド
 		//引数：URL
 		public async Task <string> AgodaGetPrice(string tb_html)
 		{
 			string Sok, Smiss;
-			
+
 			try
 			{
 				//htmlタグをすべて取得
 			    string html = await _hc.GetStringAsync(tb_html);
 
                 //文字抜き出し処理:1st
-			    string strT1 = "from: \""; 
+			    string strT1 = "from: \"";
 			    string strB1 = "\"";
 			    string strTrim = "";
                 strTrim = GetBetweenStrings(strT1, strB1, html);
@@ -62,7 +62,7 @@ namespace Web2geter
 		public string GetBetweenStrings(string str1, string str2, string orgStr)
 		{
             string s = ""; //返す文字列(トリムされた文字)
-		
+
             //例外処理
             try
 			{
@@ -89,8 +89,8 @@ namespace Web2geter
 		}
 
 		//文字抜き出し処理: ホテル名
-		public string HotelName(string html)
-		{			
+		public string GetHotelName(string html)
+		{
 			string strTH = "jp/";
 			string strBH = "/hotel";
 			string strHotel = "";
@@ -98,11 +98,28 @@ namespace Web2geter
 			return strHotel;
 		}
 
-		/// <summary>
-		/// csv.Fileの保存
-		/// </summary>
-		/// <param name="day"></param>
-		public bool CsvFileSave(string day)
+        // 文字抜き出し処理:CheckIN&CheckOut
+	    public string GetHotelCheckIO(string html)
+	    {
+	        string tin = "checkin=";
+	        string bin = "&los";
+            string sin = "";
+	        sin = GetBetweenStrings(tin, bin, html);
+            /*
+	        var matches = Regex.Matches(html, @"checkin=.+");
+	        foreach (var smMatch in matches)
+	        {
+	            strHotel =
+	        }
+            */
+            return sin;
+        }
+
+	    /// <summary>
+            /// csv.Fileの保存
+            /// </summary>
+            /// <param name="day"></param>
+            public bool CsvFileSave(string day)
 		{
 			string csvsave = "Save";
 			if (!Directory.Exists(csvsave))
