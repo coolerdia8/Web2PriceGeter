@@ -45,6 +45,7 @@
             this.OpenLog = new System.Windows.Forms.Button();
             this.GraphBtn = new System.Windows.Forms.Button();
             this.Exit = new System.Windows.Forms.Button();
+            this.Sort = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -207,11 +208,22 @@
             this.Exit.UseVisualStyleBackColor = true;
             this.Exit.Click += new System.EventHandler(this.Exit_Click);
             // 
+            // Sort
+            // 
+            this.Sort.Location = new System.Drawing.Point(396, 248);
+            this.Sort.Name = "Sort";
+            this.Sort.Size = new System.Drawing.Size(75, 23);
+            this.Sort.TabIndex = 18;
+            this.Sort.Text = "MIN/MAX";
+            this.Sort.UseVisualStyleBackColor = true;
+            this.Sort.Click += new System.EventHandler(this.Sort_Click);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(495, 353);
+            this.Controls.Add(this.Sort);
             this.Controls.Add(this.Exit);
             this.Controls.Add(this.GraphBtn);
             this.Controls.Add(this.OpenLog);
@@ -256,6 +268,7 @@
         private System.Windows.Forms.Button OpenLog;
         private System.Windows.Forms.Button GraphBtn;
         private System.Windows.Forms.Button Exit;
+        private System.Windows.Forms.Button Sort;
     }
 }
 

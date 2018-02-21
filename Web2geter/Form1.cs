@@ -16,15 +16,15 @@ namespace Web2geter
 	        InitializeComponent();
 	    }
 
-	    public class HotelInfo
+	    public class HotelUrlInfo
 	    {
-	        // 店舗名
+	        // URL用
 	        public string HotelName { get; set; }
 
 	        public string HotelURL { get; set; }
 
             // プロパティをコンストラクタでセット
-            public HotelInfo(String s, String u)
+            public HotelUrlInfo(String s, String u)
 	        {
 	            HotelName = s;
 	            HotelURL = u;
@@ -39,10 +39,10 @@ namespace Web2geter
             var hSetUrl = new SetURL(filePath);
 
 	        // List インターフェイスまたは IListSource インターフェイスを実装する、DataSet または Array などのオブジェクト。
-            List<HotelInfo> src = new List<HotelInfo>();
+            List<HotelUrlInfo> src = new List<HotelUrlInfo>();
             foreach (var obj in hSetUrl.FindAll("http"))
 	        {
-	           src.Add(new HotelInfo(obj.Key, obj.Value));
+	           src.Add(new HotelUrlInfo(obj.Key, obj.Value));
 	        }
 	        // ComboBoxに表示と値をセット
 	        comboBox1.DataSource = src;
@@ -91,7 +91,7 @@ namespace Web2geter
 
         private void URLadd_Click(object sender, EventArgs e)
         {
-            HotelInfo tmp = (HotelInfo)comboBox1.SelectedItem;//表示名はキャストして取りだす
+            HotelUrlInfo tmp = (HotelUrlInfo)comboBox1.SelectedItem;//表示名はキャストして取りだす
             tb_html1.Text = tmp.HotelURL;
         }
 
@@ -113,6 +113,12 @@ namespace Web2geter
         private void Exit_Click(object sender, EventArgs e)
         {
             Environment.Exit(0);
+        }
+
+        private void Sort_Click(object sender, EventArgs e)
+        {
+            var sorts = new SortPrice("testPrice.csv");
+            var min = sorts.Where(u => u. )
         }
     }
 }
