@@ -37,7 +37,7 @@ namespace Web2geter
 	        string filePath = @"URLSave\HotelInfo.csv";
 
             var hSetUrl = new SetURL(filePath);
-	        
+
 	        // List インターフェイスまたは IListSource インターフェイスを実装する、DataSet または Array などのオブジェクト。
             List<HotelInfo> src = new List<HotelInfo>();
             foreach (var obj in hSetUrl.FindAll("http"))
@@ -53,7 +53,7 @@ namespace Web2geter
         public async void button1_Click(object sender, EventArgs e)
 		{
 		    Price1.Text = await _agodaInfo.AgodaGetPrice(tb_html1.Text);
-		     
+
             _sound.PlaySound();
 		    _sound.StopSound();
             day1.Text = _agodaInfo.GetDay();
@@ -99,6 +99,20 @@ namespace Web2geter
         {
             string filePath = @"C:\Users\Y.KATO\source\repos\Web2geter\log\";
             Process.Start("notepad.exe",filePath + DateTime.Now.ToString("yyyyMMdd") + ".txt");
+        }
+
+        private void GraphBtn_Click(object sender, EventArgs e)
+        {
+            //Application.Run(new Graph());
+            var graph = new Graph();
+            graph.ShowDialog(this);
+            graph.Dispose();
+            this.Show();
+        }
+
+        private void Exit_Click(object sender, EventArgs e)
+        {
+            Environment.Exit(0);
         }
     }
 }

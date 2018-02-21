@@ -43,6 +43,8 @@
             this.URLSet = new System.Windows.Forms.Button();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.OpenLog = new System.Windows.Forms.Button();
+            this.GraphBtn = new System.Windows.Forms.Button();
+            this.Exit = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -185,11 +187,33 @@
             this.OpenLog.UseVisualStyleBackColor = true;
             this.OpenLog.Click += new System.EventHandler(this.OpenLog_Click);
             // 
+            // GraphBtn
+            // 
+            this.GraphBtn.Location = new System.Drawing.Point(408, 186);
+            this.GraphBtn.Name = "GraphBtn";
+            this.GraphBtn.Size = new System.Drawing.Size(75, 23);
+            this.GraphBtn.TabIndex = 16;
+            this.GraphBtn.Text = "グラフ表示";
+            this.GraphBtn.UseVisualStyleBackColor = true;
+            this.GraphBtn.Click += new System.EventHandler(this.GraphBtn_Click);
+            // 
+            // Exit
+            // 
+            this.Exit.Location = new System.Drawing.Point(431, 318);
+            this.Exit.Name = "Exit";
+            this.Exit.Size = new System.Drawing.Size(52, 23);
+            this.Exit.TabIndex = 17;
+            this.Exit.Text = "終了";
+            this.Exit.UseVisualStyleBackColor = true;
+            this.Exit.Click += new System.EventHandler(this.Exit_Click);
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(495, 353);
+            this.Controls.Add(this.Exit);
+            this.Controls.Add(this.GraphBtn);
             this.Controls.Add(this.OpenLog);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.URLSet);
@@ -230,6 +254,8 @@
         private System.Windows.Forms.Button URLSet;
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Button OpenLog;
+        private System.Windows.Forms.Button GraphBtn;
+        private System.Windows.Forms.Button Exit;
     }
 }
 

@@ -15,9 +15,9 @@ namespace Web2geter
         String hPrice = "None";
 		String filename = "None";
 
-		//価格取得メソッド
-		//引数：URL
-		public async Task <string> AgodaGetPrice(string tb_html)
+	    //価格取得メソッド
+        //引数：URL
+        public async Task <string> AgodaGetPrice(string tb_html)
 		{
 			string Sok, Smiss;
 
