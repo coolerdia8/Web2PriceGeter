@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 using System.Windows.Forms;
 using Microsoft.VisualBasic;
 
@@ -20,7 +21,6 @@ namespace Web2geter
 	    {
 	        // URL用
 	        public string HotelName { get; set; }
-
 	        public string HotelURL { get; set; }
 
             // プロパティをコンストラクタでセット
@@ -117,8 +117,9 @@ namespace Web2geter
 
         private void Sort_Click(object sender, EventArgs e)
         {
-            var sorts = new SortPrice("testPrice.csv");
-            var min = sorts.Where(u => u. )
+            var sorts = new SortPrice("testPrice1.csv");
+            List<HotelPriceInfo> pricelist = new List<HotelPriceInfo>();//HotelPrice
+            //var min = sorts.Min(); //Where(u => u.Ho )
         }
     }
 }

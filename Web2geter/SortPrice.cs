@@ -22,13 +22,13 @@ namespace Web2geter
             foreach (var line in lines)
             {
                 var items = line.Split(',');
-                var hotelinfo = new HotelPriceInfo
+                var hotelPriceInfo = new HotelPriceInfo
                 {
-                    HotelGetdate = items[0],
-                    UnderPrice = items[1],
-                    HighPrice = items[2]
+                    HotelPrice = int.Parse(items[0]),
+                    HotelGetdate = items[1],
+                    //HighPrice = items[2]
                 };
-                hotelInfos.Add(hotelinfo);
+                hotelInfos.Add(hotelPriceInfo);
             }
             return hotelInfos;
         }
