@@ -9,8 +9,7 @@ namespace Web2geter
 {
     public class GetAgodaInfo
 	{
-	    //HttpClient型のインスタンス化
-        private readonly HttpClient _hc = new HttpClient();
+	    private readonly HttpClient _hc = new HttpClient();
 	    LogOutput _logOuput = new LogOutput();
         String hPrice = "None";
 		String filename = "None";

@@ -34,7 +34,8 @@ namespace Web2geter
 
         public void OutputSuccessLog()
         {
-            File.AppendAllText(_filePath.MakeFilePath(filePath) + "\\" + DateTime.Now.ToString("yyyyMMdd") + extension, "[" + DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss") + "] message: GetPrice SUCCESS!\r\n");
+            File.AppendAllText(_filePath.MakeFilePath(filePath) + "\\" + DateTime.Now.ToString("yyyyMMdd") + extension,
+                "[" + DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss") + "] message: GetPrice SUCCESS!\r\n");
         }
 
         public void ToOpenLog()

@@ -35,7 +35,6 @@ namespace Web2geter
 	    public void SetUrl2Box()
 	    {
 	        string filePath = @"URLSave\HotelInfo.csv";
-
             var hSetUrl = new SetURL(filePath);
 
 	        // List インターフェイスまたは IListSource インターフェイスを実装する、DataSet または Array などのオブジェクト。
