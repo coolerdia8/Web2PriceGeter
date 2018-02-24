@@ -58,6 +58,9 @@
             // 
             // chart1
             // 
+            this.chart1.BorderSkin.BorderColor = System.Drawing.Color.Maroon;
+            chartArea1.AxisX.MajorGrid.Enabled = false;
+            chartArea1.AxisY.MajorGrid.Enabled = false;
             chartArea1.Name = "ChartArea1";
             this.chart1.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";

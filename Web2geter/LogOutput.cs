@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.IO;
 using System.Text;
 
@@ -6,18 +7,19 @@ namespace Web2geter
 {
     class LogOutput
     {
+        private readonly GetFilePath _filePath = new GetFilePath();
+        private string filePath = "log";
+        private string extension = ".txt";
         /**
- *  エラー調査用ログ出力
- *  @param ex catchしたエラー内容
- */
+        *  エラー調査用ログ出力
+        *  @param ex catchしたエラー内容
+        */
         public void OutputErrLog(Exception ex)
         {
-            string filePath = @"C:\Users\Y.KATO\source\repos\Web2geter\log\";
             // 書き込み設定
             StreamWriter sw = new StreamWriter(
-                filePath + DateTime.Now.ToString("yyyyMMdd") + ".txt",   // 出力先ファイル名
-                true,                                                           // 追加書き込み
-                Encoding.GetEncoding("Shift_JIS"));                 // 文字コード
+                _filePath.MakeFilePath(filePath) + "\\" + DateTime.Now.ToString("yyyyMMdd") + extension,   // 出力先ファイル名
+                true, Encoding.GetEncoding("Shift_JIS"));                                        // 追加書き込み
 
             // ログ出力
             Console.SetOut(sw); // 出力先（Outプロパティ）を設定
@@ -30,6 +32,15 @@ namespace Web2geter
             sw.Dispose();
         }
 
+        public void OutputSuccessLog()
+        {
+            File.AppendAllText(_filePath.MakeFilePath(filePath) + "\\" + DateTime.Now.ToString("yyyyMMdd") + extension, "[" + DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss") + "] message: GetPrice SUCCESS!\r\n");
+        }
+
+        public void ToOpenLog()
+        {
+            Process.Start("notepad.exe", _filePath.MakeFilePath(filePath) + "\\" + DateTime.Now.ToString("yyyyMMdd") + extension);
+        }
         // catchの中に書いて完成！
         // try {
         //     …

@@ -12,7 +12,7 @@ namespace Web2geter
 		GetAgodaInfo _agodaInfo = new GetAgodaInfo();
 	    readonly Sound _sound = new Sound();
 
-	    public FormMain()
+        public FormMain()
 	    {
 	        InitializeComponent();
 	    }
@@ -86,7 +86,6 @@ namespace Web2geter
 	    private void URLSet_Click(object sender, EventArgs e)
 	    {
 	        SetUrl2Box();
-            //MessageBox
         }
 
         private void URLadd_Click(object sender, EventArgs e)
@@ -97,8 +96,7 @@ namespace Web2geter
 
         private void OpenLog_Click(object sender, EventArgs e)
         {
-            string filePath = @"C:\Users\Y.KATO\source\repos\Web2geter\log\";
-            Process.Start("notepad.exe",filePath + DateTime.Now.ToString("yyyyMMdd") + ".txt");
+            new LogOutput().ToOpenLog();
         }
 
         private void GraphBtn_Click(object sender, EventArgs e)
@@ -107,7 +105,7 @@ namespace Web2geter
             var graph = new Graph();
             graph.ShowDialog(this);
             graph.Dispose();
-            this.Show();
+            Show();
         }
 
         private void Exit_Click(object sender, EventArgs e)
@@ -117,9 +115,16 @@ namespace Web2geter
 
         private void Sort_Click(object sender, EventArgs e)
         {
+#if FALSE
             var sorts = new SortPrice("testPrice1.csv");
             List<HotelPriceInfo> pricelist = new List<HotelPriceInfo>();//HotelPrice
+            foreach (var obj in sorts.FindAll("http"))
+            {
+               /pricelist.Add(new HotelPriceInfo(obj.Key, obj.Value));
+            }
             //var min = sorts.Min(); //Where(u => u.Ho )
+#endif
         }
+
     }
 }

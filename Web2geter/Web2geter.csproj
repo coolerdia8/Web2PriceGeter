@@ -54,6 +54,7 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="GetFilePath.cs" />
     <Compile Include="Graph.cs">
       <SubType>Form</SubType>
     </Compile>

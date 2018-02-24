@@ -47,13 +47,10 @@ namespace Web2geter
 				//URLが正しくないとき
 				Smiss = "URLが正しくない可能性があります。\r\n入力し直してください。";
 			    _logOuput.OutputErrLog(ex);
-
                 return Smiss;
 			}
             //ログ出力
-            const string outputPath = @"C:\Users\Y.KATO\source\repos\Web2geter\log\";
-            File.AppendAllText(outputPath + DateTime.Now.ToString("yyyyMMdd") + ".txt", "[" + DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss") + "] message: GetPrice SUCCESS!\r\n");
-
+		    _logOuput.OutputSuccessLog();
             return Sok;
 		}
 
@@ -119,7 +116,7 @@ namespace Web2geter
             /// csv.Fileの保存
             /// </summary>
             /// <param name="day"></param>
-            public bool CsvFileSave(string day)
+        public bool CsvFileSave(string day)
 		{
 			string csvsave = "Save";
 			if (!Directory.Exists(csvsave))

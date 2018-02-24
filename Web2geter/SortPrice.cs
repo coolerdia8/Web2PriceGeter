@@ -1,19 +1,33 @@
 ﻿using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 
 namespace Web2geter
 {
     class SortPrice
     {
-        private IEnumerable<HotelPriceInfo> _hotelPriceInfos;
+        private IEnumerable<HotelPriceInfo> _list;
 
         // コンストラクタ
         public SortPrice(string filePath)
         {
             //ReadPriceInfos(filePath);
-            _hotelPriceInfos = ReadPriceInfos(filePath);
+            //_list = File.ReadLines(filePath).Select(line => line.Split(',')).Where(x => x.Length > 5);
         }
+#if FALSE
+        public IEnumerable<KeyValuePair<string, string>> FindAll(string subs)
+        {
 
+            foreach (var item in _list)
+            {
+                if (item.Value.Contains(subs))
+                    yield return item;
+            }
+
+         }
+#endif
+
+#if FALSE
         // 売り上げデータを読み込み、Saleオブジェクトのリストを返す
         private static IEnumerable<HotelPriceInfo> ReadPriceInfos(string filePath)
         {
@@ -32,5 +46,6 @@ namespace Web2geter
             }
             return hotelInfos;
         }
+#endif
     }
 }
