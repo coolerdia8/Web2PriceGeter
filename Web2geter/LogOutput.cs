@@ -42,13 +42,5 @@ namespace Web2geter
         {
             Process.Start("notepad.exe", _filePath.MakeFilePath(filePath) + "\\" + DateTime.Now.ToString("yyyyMMdd") + extension);
         }
-        // catchの中に書いて完成！
-        // try {
-        //     …
-        // }catch(Exception ex) {
-        //     OutputErrLog(ex);
-        // }
-
-
     }
 }

@@ -137,7 +137,7 @@
             // day1
             // 
             this.day1.AutoSize = true;
-            this.day1.Location = new System.Drawing.Point(151, 94);
+            this.day1.Location = new System.Drawing.Point(151, 84);
             this.day1.Name = "day1";
             this.day1.Size = new System.Drawing.Size(29, 12);
             this.day1.TabIndex = 10;
@@ -147,8 +147,10 @@
             // 
             this.Name1.Location = new System.Drawing.Point(261, 115);
             this.Name1.Name = "Name1";
+            this.Name1.ReadOnly = true;
             this.Name1.Size = new System.Drawing.Size(134, 19);
             this.Name1.TabIndex = 11;
+            this.Name1.Text = "ここにホテル名表示";
             // 
             // URLSave
             // 
@@ -173,7 +175,7 @@
             // 
             // progressBar1
             // 
-            this.progressBar1.Location = new System.Drawing.Point(261, 186);
+            this.progressBar1.Location = new System.Drawing.Point(30, 300);
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(100, 23);
             this.progressBar1.TabIndex = 14;
@@ -210,7 +212,7 @@
             // 
             // Sort
             // 
-            this.Sort.Location = new System.Drawing.Point(396, 248);
+            this.Sort.Location = new System.Drawing.Point(320, 186);
             this.Sort.Name = "Sort";
             this.Sort.Size = new System.Drawing.Size(75, 23);
             this.Sort.TabIndex = 18;

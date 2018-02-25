@@ -1,11 +1,36 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Windows.Forms;
 
 namespace Web2geter
 {
     class SortPrice
     {
+        public void SortMinMaxPrice()
+        {
+            var filesave = new FileSave();
+            string filenametest = filesave.GetFileName();
+            if (filenametest == "") { return; }
+
+            try
+            {
+                string smin = File.ReadLines(filenametest).Select(x => int.Parse(x)).Where(n => n > 0).Min().ToString();
+                string smax = File.ReadLines(filenametest).Select(x => int.Parse(x)).Where(n => n > 0).Max().ToString();
+
+                //値を書き込み　ファイル名:x 値を:y　にする。
+                filesave.PriceMinMaxSave(smin, smax, filenametest);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "エラー", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+                //_logOuput.OutputErrLog(ex);
+            }
+        }
+
+#if FALSE
         private IEnumerable<HotelPriceInfo> _list;
 
         // コンストラクタ
@@ -14,7 +39,7 @@ namespace Web2geter
             //ReadPriceInfos(filePath);
             //_list = File.ReadLines(filePath).Select(line => line.Split(',')).Where(x => x.Length > 5);
         }
-#if FALSE
+
         public IEnumerable<KeyValuePair<string, string>> FindAll(string subs)
         {
 

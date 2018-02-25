@@ -10,7 +10,7 @@ namespace Web2geter
 {
     public partial class FormMain : Form
 	{
-		GetAgodaInfo _agodaInfo = new GetAgodaInfo();
+	    readonly GetAgodaInfo _agodaInfo = new GetAgodaInfo();
 	    readonly Sound _sound = new Sound();
 
         public FormMain()
@@ -114,26 +114,7 @@ namespace Web2geter
 
         private void Sort_Click(object sender, EventArgs e)
         {
-            var filesave = new FileSave();
-            string filenametest = filesave.GetFileName();
-            if (filenametest == ""){ return;}
-
-            try
-            {
-                int Imin = File.ReadLines(filenametest).Select(x => int.Parse(x)).Where(n => n > 0).Min();
-                int Imax = File.ReadLines(filenametest).Select(x => int.Parse(x)).Where(n => n > 0).Max();
-                string smin = Imin.ToString();
-                string smax = Imax.ToString();
-
-                //値を書き込み　ファイル名:x 値を:y　にする。
-                filesave.PriceMinMaxSave(smin, smax, filenametest);
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message, "エラー", MessageBoxButtons.OK,
-                    MessageBoxIcon.Error);
-                //_logOuput.OutputErrLog(ex);
-            }
+            new SortPrice().SortMinMaxPrice();
         }
     }
 }
