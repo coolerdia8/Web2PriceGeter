@@ -50,7 +50,8 @@ namespace Web2geter
                 return Smiss;
 			}
             //ログ出力
-		    _logOuput.OutputSuccessLog();
+		    string okMessage = "GetPrice SUCCESS!\r\n";
+            _logOuput.OutputSuccessLog(okMessage);
             return Sok;
 		}
 

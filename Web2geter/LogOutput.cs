@@ -32,10 +32,10 @@ namespace Web2geter
             sw.Dispose();
         }
 
-        public void OutputSuccessLog()
+        public void OutputSuccessLog(string message)
         {
             File.AppendAllText(_filePath.MakeFilePath(filePath) + "\\" + DateTime.Now.ToString("yyyyMMdd") + extension,
-                "[" + DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss") + "] message: GetPrice SUCCESS!\r\n");
+                "[" + DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss") + "] "+ message );
         }
 
         public void ToOpenLog()
