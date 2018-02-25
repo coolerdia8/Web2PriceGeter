@@ -114,7 +114,30 @@ namespace Web2geter
 
         private void Sort_Click(object sender, EventArgs e)
         {
-            new SortPrice().SortMinMaxPrice();
+
+            try
+            {
+                var filesave = new FileSave();
+                string filenametest = filesave.GetFileName();
+                if (filenametest == "")
+                {
+                    return;
+                }
+
+                var sort = new SortPrice().ReadPriceInfos(filenametest);
+                // List インターフェイスまたは IListSource インターフェイスを実装する、DataSet または Array などのオブジェクト。
+
+                string smin = sort.Min(n => n.HotelPrice).ToString();
+                string smax = sort.Max(n => n.HotelPrice).ToString();
+
+                //値を書き込み　ファイル名:x 値を:y　にする。
+                filesave.PriceMinMaxSave(smin, smax, filenametest);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "エラー", MessageBoxButtons.OK,
+                    MessageBoxIcon.Error);
+            }
         }
     }
 }

@@ -1,13 +1,30 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Windows.Forms;
 
 namespace Web2geter
 {
     class SortPrice
     {
+        // 日別の料金データを読み込み、HotelPriceInfoオブジェクトのリストを返す
+        public IEnumerable<HotelPriceInfo> ReadPriceInfos(string filePath)
+        {
+            var hotelInfos = new List<HotelPriceInfo>();
+            var lines = File.ReadAllLines(filePath);
+            foreach (var line in lines)
+            {
+                var items = line.Split(',');
+                var hotelPriceInfo = new HotelPriceInfo
+                {
+                    HotelPrice = int.Parse(items[0]),
+                    HotelGetdate = items[1],
+                    HotelGetTime = items[2]
+                };
+                hotelInfos.Add(hotelPriceInfo);
+            }
+            return hotelInfos;
+        }
+
+        #if FALSE
         public void SortMinMaxPrice()
         {
             var filesave = new FileSave();
@@ -29,8 +46,9 @@ namespace Web2geter
                 //_logOuput.OutputErrLog(ex);
             }
         }
+        #endif
 
-#if FALSE
+        #if FALSE
         private IEnumerable<HotelPriceInfo> _list;
 
         // コンストラクタ
@@ -50,27 +68,16 @@ namespace Web2geter
             }
 
          }
-#endif
 
-#if FALSE
-        // 売り上げデータを読み込み、Saleオブジェクトのリストを返す
-        private static IEnumerable<HotelPriceInfo> ReadPriceInfos(string filePath)
+        public void SortMinMax()
         {
-            var hotelInfos = new List<HotelPriceInfo>();
-            var lines = File.ReadAllLines(filePath);
-            foreach (var line in lines)
-            {
-                var items = line.Split(',');
-                var hotelPriceInfo = new HotelPriceInfo
-                {
-                    HotelPrice = int.Parse(items[0]),
-                    HotelGetdate = items[1],
-                    //HighPrice = items[2]
-                };
-                hotelInfos.Add(hotelPriceInfo);
-            }
-            return hotelInfos;
+            var filesave = new FileSave();
+            string filenametest = filesave.GetFileName();
+            if (filenametest == "") { return; }
+
+            File.ReadLines(filenametest).Select(line => line.Split(',')).ToList(x => x[0], x => x[1], x => x[2]);
+            //Where(x => x.Length > 5);
         }
-#endif
+        #endif
     }
 }

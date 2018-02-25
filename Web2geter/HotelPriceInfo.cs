@@ -1,14 +1,14 @@
 ﻿namespace Web2geter
 {
-    public class HotelPriceInfo
+    public class HotelPriceInfo 
     {
-        // 取得日
+        //料金
         public int HotelPrice { get; set; }
 
-        // 最安値
+        // 取得日
         public string HotelGetdate { get; set; }
 
-        // 最高値
-        //public int HighPrice { get; set; }
+        // 取得時間
+        public string HotelGetTime { get; set; }
     }
 }
