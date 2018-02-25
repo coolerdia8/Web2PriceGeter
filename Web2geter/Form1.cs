@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using Microsoft.VisualBasic;
@@ -28,7 +29,6 @@ namespace Web2geter
 	        {
 	            HotelName = s;
 	            HotelURL = u;
-                //throw new NotImplementedException();
             }
 	    }
 
@@ -56,6 +56,7 @@ namespace Web2geter
             _sound.PlaySound();
 		    _sound.StopSound();
             day1.Text = _agodaInfo.GetDay();
+
             Name1.Text = _agodaInfo.GetHotelName(tb_html1.Text);
 		    //_agodaInfo.GetHotelCheckIO;
 		}
@@ -114,15 +115,14 @@ namespace Web2geter
 
         private void Sort_Click(object sender, EventArgs e)
         {
-#if FALSE
-            var sorts = new SortPrice("testPrice1.csv");
-            List<HotelPriceInfo> pricelist = new List<HotelPriceInfo>();//HotelPrice
-            foreach (var obj in sorts.FindAll("http"))
-            {
-               /pricelist.Add(new HotelPriceInfo(obj.Key, obj.Value));
-            }
-            //var min = sorts.Min(); //Where(u => u.Ho )
-#endif
+            //string filenametest = "2018-02-00.csv";
+            string filenametest = new FileSave().GetFileName();
+            if (filenametest == ""){ return;}
+
+            int min = File.ReadLines(filenametest).Select(x => int.Parse(x)).Where(n => n > 0).Min();
+            int max = File.ReadLines(filenametest).Select(x => int.Parse(x)).Where(n => n > 0).Max();
+            //値を書き込み　ファイル名:x 値を:y　にする。
+
         }
 
     }
