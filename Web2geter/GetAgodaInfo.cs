@@ -82,7 +82,7 @@ namespace Web2geter
 		//取得日時
 		public string GetDay()
 		{
-			filename = DateTime.Now.ToString("yyyy-MM-dd,hh:mm:ss");
+			filename = DateTime.Now.ToString("yyyy-MM-dd,HH:mm:ss");
 		    return filename;
 		}
 

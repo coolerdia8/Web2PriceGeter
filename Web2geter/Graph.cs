@@ -14,18 +14,38 @@ namespace Web2geter
         {
             //画面タイトルの表示
             TitleName.Text = "Hotel";
-            int hotelprice = 5000;
-            string LowPrice = "min";
-            string HighPrice = "max";
 
             // 1.Seriesの追加
             chart1.Series.Clear();
-            chart1.Series.Add(LowPrice);
+
+            // グラフの表示
+            DispChart();
+        }
+
+        // "グラフ表示関数"
+        public void DispChart()
+        {
+            string low = "min";
+            string high = "max";
 
             // 2.グラフのタイプの設定
-            chart1.Series[LowPrice].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
-            chart1.Series[LowPrice].Points.AddXY("21", hotelprice);
-            chart1.Series[LowPrice].Points.AddXY("22", hotelprice);
+            chart1.Series.Add(low);
+            chart1.Series.Add(high);
+            chart1.Series[low].ChartType =
+                System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
+            chart1.Series[high].ChartType =
+                System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
+
+            string filePath = @"Save\PriceMin&Max.csv";
+            var infos = new Price2Graph().ReadPrice2GraphInfos(filePath);
+
+            //グラフのデータを追加(リストからデータのある箇所だけ)
+            foreach (var graph in infos)
+            {
+                chart1.Series[low].Points.AddXY(graph.HotelGetdate, graph.LowPrice);
+                chart1.Series[high].Points.AddXY(graph.HotelGetdate, graph.HighPrice);
+            }
+            chart1.BorderWidth = 3;
         }
 
         private void Close_Click(object sender, EventArgs e)
