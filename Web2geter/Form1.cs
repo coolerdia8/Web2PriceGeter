@@ -50,16 +50,19 @@ namespace Web2geter
         }
 
         public async void button1_Click(object sender, EventArgs e)
-		{
-		    Price1.Text = await _agodaInfo.AgodaGetPrice(tb_html1.Text);
+        {
+            toolStripStatusLabel1.Text = "取得中...";
+
+            Price1.Text = await _agodaInfo.AgodaGetPrice(tb_html1.Text);
 
             _sound.PlaySound();
 		    _sound.StopSound();
             day1.Text = _agodaInfo.GetDay();
 
             Name1.Text = _agodaInfo.GetHotelName(tb_html1.Text);
-		    //_agodaInfo.GetHotelCheckIO;
-		}
+            //_agodaInfo.GetHotelCheckIO;
+            toolStripStatusLabel1.Text = "取得完了";
+        }
 
 		private void Del1_Click(object sender, EventArgs e)
 		{
@@ -138,5 +141,7 @@ namespace Web2geter
                     MessageBoxIcon.Error);
             }
         }
+
+       
     }
 }

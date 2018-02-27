@@ -28,6 +28,7 @@
 		/// </summary>
 		private void InitializeComponent()
 		{
+            this.components = new System.ComponentModel.Container();
             this.button1 = new System.Windows.Forms.Button();
             this.tb_html1 = new System.Windows.Forms.TextBox();
             this.Price1 = new System.Windows.Forms.TextBox();
@@ -46,6 +47,14 @@
             this.GraphBtn = new System.Windows.Forms.Button();
             this.Exit = new System.Windows.Forms.Button();
             this.Sort = new System.Windows.Forms.Button();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel1 = new System.Windows.Forms.ToolStripStatusLabel();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.statusStrip1.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
@@ -60,7 +69,7 @@
             // 
             // tb_html1
             // 
-            this.tb_html1.Location = new System.Drawing.Point(23, 32);
+            this.tb_html1.Location = new System.Drawing.Point(12, 54);
             this.tb_html1.Name = "tb_html1";
             this.tb_html1.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
             this.tb_html1.Size = new System.Drawing.Size(343, 19);
@@ -90,7 +99,7 @@
             // 
             this.labelURL.AutoSize = true;
             this.labelURL.ForeColor = System.Drawing.Color.DarkRed;
-            this.labelURL.Location = new System.Drawing.Point(23, 14);
+            this.labelURL.Location = new System.Drawing.Point(23, 30);
             this.labelURL.Name = "labelURL";
             this.labelURL.Size = new System.Drawing.Size(72, 12);
             this.labelURL.TabIndex = 4;
@@ -98,7 +107,7 @@
             // 
             // URL_Clear
             // 
-            this.URL_Clear.Location = new System.Drawing.Point(424, 12);
+            this.URL_Clear.Location = new System.Drawing.Point(366, 50);
             this.URL_Clear.Name = "URL_Clear";
             this.URL_Clear.Size = new System.Drawing.Size(59, 23);
             this.URL_Clear.TabIndex = 5;
@@ -119,14 +128,14 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(25, 94);
+            this.comboBox1.Location = new System.Drawing.Point(25, 113);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(105, 20);
             this.comboBox1.TabIndex = 7;
             // 
             // URLAdd
             // 
-            this.URLAdd.Location = new System.Drawing.Point(78, 57);
+            this.URLAdd.Location = new System.Drawing.Point(78, 79);
             this.URLAdd.Name = "URLAdd";
             this.URLAdd.Size = new System.Drawing.Size(52, 23);
             this.URLAdd.TabIndex = 8;
@@ -155,7 +164,7 @@
             // URLSave
             // 
             this.URLSave.Font = new System.Drawing.Font("MS UI Gothic", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.URLSave.Location = new System.Drawing.Point(424, 41);
+            this.URLSave.Location = new System.Drawing.Point(436, 50);
             this.URLSave.Name = "URLSave";
             this.URLSave.Size = new System.Drawing.Size(59, 23);
             this.URLSave.TabIndex = 12;
@@ -165,7 +174,7 @@
             // 
             // URLSet
             // 
-            this.URLSet.Location = new System.Drawing.Point(60, 121);
+            this.URLSet.Location = new System.Drawing.Point(60, 142);
             this.URLSet.Name = "URLSet";
             this.URLSet.Size = new System.Drawing.Size(70, 23);
             this.URLSet.TabIndex = 13;
@@ -202,7 +211,7 @@
             // 
             // Exit
             // 
-            this.Exit.Location = new System.Drawing.Point(431, 318);
+            this.Exit.Location = new System.Drawing.Point(431, 305);
             this.Exit.Name = "Exit";
             this.Exit.Size = new System.Drawing.Size(52, 23);
             this.Exit.TabIndex = 17;
@@ -220,11 +229,57 @@
             this.Sort.UseVisualStyleBackColor = true;
             this.Sort.Click += new System.EventHandler(this.Sort_Click);
             // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel1});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 330);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(495, 23);
+            this.statusStrip1.TabIndex = 19;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabel1
+            // 
+            this.toolStripStatusLabel1.Name = "toolStripStatusLabel1";
+            this.toolStripStatusLabel1.Size = new System.Drawing.Size(56, 18);
+            this.toolStripStatusLabel1.Text = "準備完了";
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(61, 4);
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem1,
+            this.toolStripMenuItem2});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(495, 26);
+            this.menuStrip1.TabIndex = 21;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(57, 22);
+            this.toolStripMenuItem1.Text = "File(&F)";
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(54, 22);
+            this.toolStripMenuItem2.Text = "Log(&l)";
+            // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(495, 353);
+            this.Controls.Add(this.statusStrip1);
+            this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.Sort);
             this.Controls.Add(this.Exit);
             this.Controls.Add(this.GraphBtn);
@@ -243,9 +298,14 @@
             this.Controls.Add(this.Price1);
             this.Controls.Add(this.tb_html1);
             this.Controls.Add(this.button1);
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "FormMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Webから取得";
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -271,6 +331,12 @@
         private System.Windows.Forms.Button GraphBtn;
         private System.Windows.Forms.Button Exit;
         private System.Windows.Forms.Button Sort;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel1;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
     }
 }
 
