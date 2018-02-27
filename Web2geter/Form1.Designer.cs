@@ -29,6 +29,7 @@
 		private void InitializeComponent()
 		{
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.button1 = new System.Windows.Forms.Button();
             this.tb_html1 = new System.Windows.Forms.TextBox();
             this.Price1 = new System.Windows.Forms.TextBox();
@@ -43,7 +44,6 @@
             this.URLSave = new System.Windows.Forms.Button();
             this.URLSet = new System.Windows.Forms.Button();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
-            this.OpenLog = new System.Windows.Forms.Button();
             this.GraphBtn = new System.Windows.Forms.Button();
             this.Exit = new System.Windows.Forms.Button();
             this.Sort = new System.Windows.Forms.Button();
@@ -53,8 +53,11 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
+            this.toolStripSplitButton1 = new System.Windows.Forms.ToolStripSplitButton();
             this.statusStrip1.SuspendLayout();
             this.menuStrip1.SuspendLayout();
+            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // button1
@@ -164,7 +167,7 @@
             // URLSave
             // 
             this.URLSave.Font = new System.Drawing.Font("MS UI Gothic", 8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(128)));
-            this.URLSave.Location = new System.Drawing.Point(436, 50);
+            this.URLSave.Location = new System.Drawing.Point(431, 50);
             this.URLSave.Name = "URLSave";
             this.URLSave.Size = new System.Drawing.Size(59, 23);
             this.URLSave.TabIndex = 12;
@@ -188,16 +191,6 @@
             this.progressBar1.Name = "progressBar1";
             this.progressBar1.Size = new System.Drawing.Size(100, 23);
             this.progressBar1.TabIndex = 14;
-            // 
-            // OpenLog
-            // 
-            this.OpenLog.Location = new System.Drawing.Point(408, 142);
-            this.OpenLog.Name = "OpenLog";
-            this.OpenLog.Size = new System.Drawing.Size(75, 23);
-            this.OpenLog.TabIndex = 15;
-            this.OpenLog.Text = "ログ確認";
-            this.OpenLog.UseVisualStyleBackColor = true;
-            this.OpenLog.Click += new System.EventHandler(this.OpenLog_Click);
             // 
             // GraphBtn
             // 
@@ -272,18 +265,38 @@
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
             this.toolStripMenuItem2.Size = new System.Drawing.Size(54, 22);
             this.toolStripMenuItem2.Text = "Log(&l)";
+            this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
+            // 
+            // toolStrip1
+            // 
+            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripSplitButton1});
+            this.toolStrip1.Location = new System.Drawing.Point(0, 26);
+            this.toolStrip1.Name = "toolStrip1";
+            this.toolStrip1.Size = new System.Drawing.Size(495, 25);
+            this.toolStrip1.TabIndex = 22;
+            this.toolStrip1.Text = "toolStrip1";
+            // 
+            // toolStripSplitButton1
+            // 
+            this.toolStripSplitButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripSplitButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripSplitButton1.Image")));
+            this.toolStripSplitButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripSplitButton1.Name = "toolStripSplitButton1";
+            this.toolStripSplitButton1.Size = new System.Drawing.Size(32, 22);
+            this.toolStripSplitButton1.Text = "toolStripSplitButton1";
             // 
             // FormMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(495, 353);
+            this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.menuStrip1);
             this.Controls.Add(this.Sort);
             this.Controls.Add(this.Exit);
             this.Controls.Add(this.GraphBtn);
-            this.Controls.Add(this.OpenLog);
             this.Controls.Add(this.progressBar1);
             this.Controls.Add(this.URLSet);
             this.Controls.Add(this.URLSave);
@@ -306,6 +319,8 @@
             this.statusStrip1.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.toolStrip1.ResumeLayout(false);
+            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -327,7 +342,6 @@
         private System.Windows.Forms.Button URLSave;
         private System.Windows.Forms.Button URLSet;
         private System.Windows.Forms.ProgressBar progressBar1;
-        private System.Windows.Forms.Button OpenLog;
         private System.Windows.Forms.Button GraphBtn;
         private System.Windows.Forms.Button Exit;
         private System.Windows.Forms.Button Sort;
@@ -337,6 +351,8 @@
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
+        private System.Windows.Forms.ToolStrip toolStrip1;
+        private System.Windows.Forms.ToolStripSplitButton toolStripSplitButton1;
     }
 }
 

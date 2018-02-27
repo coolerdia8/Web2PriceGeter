@@ -97,11 +97,6 @@ namespace Web2geter
             tb_html1.Text = tmp.HotelURL;
         }
 
-        private void OpenLog_Click(object sender, EventArgs e)
-        {
-            new LogOutput().ToOpenLog();
-        }
-
         private void GraphBtn_Click(object sender, EventArgs e)
         {
             var graph = new Graph();
@@ -142,6 +137,9 @@ namespace Web2geter
             }
         }
 
-       
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            new LogOutput().ToOpenLog();
+        }
     }
 }

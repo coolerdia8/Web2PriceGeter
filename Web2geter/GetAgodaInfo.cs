@@ -158,15 +158,13 @@ namespace Web2geter
 	        try
 	        {
 	            using (var stream = new FileStream(filePath, FileMode.Open, FileAccess.ReadWrite, FileShare.None))
+	            using (var reader = new StreamReader(stream))
+	            using (var writer = new StreamWriter(stream, Encoding.Default))
 	            {
-	                using (var reader = new StreamReader(stream))
-	                using (var writer = new StreamWriter(stream, Encoding.Default))
-	                {
-	                    string texts = reader.ReadToEnd();
-	                    stream.Position = 0;
-	                    writer.WriteLine("{0},{1}", key, url);
-	                    writer.Write(texts);
-	                }
+	                string texts = reader.ReadToEnd();
+	                stream.Position = 0;
+	                writer.WriteLine("{0},{1}", key, url);
+	                writer.Write(texts);
 	            }
 	        }
 	        catch (Exception ex)
