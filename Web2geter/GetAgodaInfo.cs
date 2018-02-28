@@ -10,7 +10,7 @@ namespace Web2geter
 {
     public class GetAgodaInfo
 	{
-	    private readonly HttpClient _hc = new HttpClient();
+	    private static readonly HttpClient _hc = new HttpClient();
 	    LogOutput _logOuput = new LogOutput();
         String hPrice = "None";
 		String filename = "None";
@@ -159,7 +159,7 @@ namespace Web2geter
 	        {
 	            using (var stream = new FileStream(filePath, FileMode.Open, FileAccess.ReadWrite, FileShare.None))
 	            using (var reader = new StreamReader(stream))
-	            using (var writer = new StreamWriter(stream, Encoding.Default))
+	            using (var writer = new StreamWriter(stream, Encoding.UTF8))
 	            {
 	                string texts = reader.ReadToEnd();
 	                stream.Position = 0;
