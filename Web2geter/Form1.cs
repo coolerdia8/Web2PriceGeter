@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
-using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using Microsoft.VisualBasic;
@@ -68,7 +66,8 @@ namespace Web2geter
 		{
 			Price1.Text = "";
 			day1.Text = "";
-		}
+		    //ClearTextBox(this);
+        }
 
 		private void URL_Clear_Click(object sender, EventArgs e)
 		{
@@ -141,5 +140,29 @@ namespace Web2geter
         {
             new LogOutput().ToOpenLog();
         }
+
+	    /// <summary>
+	    ///     指定したコントロール内に含まれる TextBox の Text をクリアします。</summary>
+	    /// <param name="hParent">
+	    ///     検索対象となる親コントロール。</param>
+	    /// --------------------------------------------------------------------------------
+	    public static void ClearTextBox(Control hParent)
+	    {
+	        // hParent 内のすべてのコントロールを列挙する
+	        foreach (Control cControl in hParent.Controls)
+	        {
+	            // 列挙したコントロールにコントロールが含まれている場合は再帰呼び出しする
+	            if (cControl.HasChildren == true)
+	            {
+	                ClearTextBox(cControl);
+	            }
+
+	            // コントロールの型が TextBoxBase からの派生型の場合は Text をクリアする
+	            if (cControl is TextBoxBase)
+	            {
+	                cControl.Text = string.Empty;
+	            }
+	        }
+	    }
     }
 }
