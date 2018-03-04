@@ -107,7 +107,8 @@ namespace Web2geter
 	    /// <summary> csv.Fileの保存 </summary>
         /// <param name="day"></param>
         public bool CsvFileSave(string day,string hPrice)
-		{
+	    {
+	        if (hPrice.StartsWith("<!DOCTYPE")){ return false;}
 			string csvsave = "Save";
 			if (!Directory.Exists(csvsave))
 			{
