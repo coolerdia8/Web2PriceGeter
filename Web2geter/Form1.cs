@@ -51,7 +51,8 @@ namespace Web2geter
         {
             toolStripStatusLabel1.Text = "取得中...";
 
-            Price1.Text = await _agodaInfo.AgodaGetPrice(tb_html1.Text);
+            string price = await _agodaInfo.AgodaGetPrice(tb_html1.Text);
+            Price1.Text = "\\" + price;
 
             _sound.PlaySound();
 		    _sound.StopSound();
@@ -59,6 +60,7 @@ namespace Web2geter
 
             Name1.Text = _agodaInfo.GetHotelName(tb_html1.Text);
             //_agodaInfo.GetHotelCheckIO;
+            _agodaInfo.CsvFileSave(day1.Text, price.Replace(",", ""));
             toolStripStatusLabel1.Text = "取得完了";
         }
 
@@ -82,7 +84,7 @@ namespace Web2geter
 		            MessageBoxIcon.Error);
                 return;
 		    }
-			_agodaInfo.CsvFileSave(day1.Text);
+			_agodaInfo.CsvFileSave(day1.Text,Price1.Text);
 		}
 
         private void URLSave_Click(object sender, EventArgs e)

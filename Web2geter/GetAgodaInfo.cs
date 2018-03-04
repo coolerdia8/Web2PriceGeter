@@ -12,15 +12,15 @@ namespace Web2geter
 	{
 	    private static readonly HttpClient Hc = new HttpClient();
 	    readonly LogOutput _logOuput = new LogOutput();
-        String hPrice = "None";
 
 	    //価格取得メソッド
         //引数：URL
         public async Task <string> AgodaGetPrice(string tb_html)
 		{
-			string Sok, Smiss;
+		    string agodaPrice;
+            string Smiss;
 
-			try
+            try
 			{
 				//htmlタグをすべて取得
 			    string html = await Hc.GetStringAsync(tb_html);
@@ -28,18 +28,17 @@ namespace Web2geter
                 //文字抜き出し処理:1st
 			    string strT1 = "from: \"";
 			    string strB1 = "\"";
-			    string strTrim = "";
-                strTrim = GetBetweenStrings(strT1, strB1, html);
+			    //string hPrice = "";
+                agodaPrice = GetBetweenStrings(strT1, strB1, html);
 
 				//rtb_Mainのテキストに代入
-				if (strTrim == "")
+				if (String.IsNullOrEmpty(agodaPrice))
 				{
 					Smiss = "Miss!\r\n入力し直してください。";
 					return Smiss;
 				}
-
-				hPrice = strTrim.Replace(",", "");
-				Sok = "\\" + strTrim;
+				//hPrice = strTrim.Replace(",", "");
+				//Sok = "\\" + strTrim;
 			}
 			catch (Exception ex)
 			{
@@ -51,7 +50,7 @@ namespace Web2geter
             //ログ出力
 		    string okMessage = "GetPrice SUCCESS!\r\n";
             _logOuput.OutputSuccessLog(okMessage);
-            return Sok;
+            return agodaPrice;
 		}
 
 		//2つの文字列の間の文字列を返すメソッド
@@ -71,7 +70,7 @@ namespace Web2geter
 			}
 			catch (Exception ex)
 			{
-				s = "トリムできませんでした。";
+				//s = "トリムできませんでした。";
 			    _logOuput.OutputErrLog(ex);
                 return s;
 			}
@@ -107,7 +106,7 @@ namespace Web2geter
 
 	    /// <summary> csv.Fileの保存 </summary>
         /// <param name="day"></param>
-        public bool CsvFileSave(string day)
+        public bool CsvFileSave(string day,string hPrice)
 		{
 			string csvsave = "Save";
 			if (!Directory.Exists(csvsave))
@@ -123,7 +122,6 @@ namespace Web2geter
 			    using (var sw = new StreamWriter(filePath, true, Encoding.Default))
 			    {
 			        sw.Write("{0},{1}\r\n", hPrice, day);
-			        sw.Close();
                 }
 				MessageBox.Show("完了", "完了。", MessageBoxButtons.OK,
 					MessageBoxIcon.None);
