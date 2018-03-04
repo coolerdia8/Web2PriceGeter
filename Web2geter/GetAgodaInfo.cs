@@ -10,10 +10,9 @@ namespace Web2geter
 {
     public class GetAgodaInfo
 	{
-	    private static readonly HttpClient _hc = new HttpClient();
-	    LogOutput _logOuput = new LogOutput();
+	    private static readonly HttpClient Hc = new HttpClient();
+	    readonly LogOutput _logOuput = new LogOutput();
         String hPrice = "None";
-		String filename = "None";
 
 	    //価格取得メソッド
         //引数：URL
@@ -24,7 +23,7 @@ namespace Web2geter
 			try
 			{
 				//htmlタグをすべて取得
-			    string html = await _hc.GetStringAsync(tb_html);
+			    string html = await Hc.GetStringAsync(tb_html);
 
                 //文字抜き出し処理:1st
 			    string strT1 = "from: \"";
@@ -79,13 +78,6 @@ namespace Web2geter
             return s; //戻り値
 		}
 
-		//取得日時
-		public string GetDay()
-		{
-			filename = DateTime.Now.ToString("yyyy-MM-dd,HH:mm:ss");
-		    return filename;
-		}
-
 		//文字抜き出し処理: ホテル名
 		public string GetHotelName(string html)
 		{
@@ -113,10 +105,8 @@ namespace Web2geter
             return sin;
         }
 
-	    /// <summary>
-            /// csv.Fileの保存
-            /// </summary>
-            /// <param name="day"></param>
+	    /// <summary> csv.Fileの保存 </summary>
+        /// <param name="day"></param>
         public bool CsvFileSave(string day)
 		{
 			string csvsave = "Save";
@@ -124,7 +114,7 @@ namespace Web2geter
 			{
 				Directory.CreateDirectory(csvsave);
 			}
-		    filename = filename.Substring(0, 10);
+		    string filename = day.Substring(0, 10);
 		    string csvfile = filename + ".csv";
 		    string filePath = Path.Combine(csvsave, csvfile);
 

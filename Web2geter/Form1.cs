@@ -55,7 +55,7 @@ namespace Web2geter
 
             _sound.PlaySound();
 		    _sound.StopSound();
-            day1.Text = _agodaInfo.GetDay();
+            day1.Text = DateTime.Now.ToString("yyyy-MM-dd,HH:mm:ss");
 
             Name1.Text = _agodaInfo.GetHotelName(tb_html1.Text);
             //_agodaInfo.GetHotelCheckIO;
@@ -64,18 +64,24 @@ namespace Web2geter
 
 		private void Del1_Click(object sender, EventArgs e)
 		{
-			Price1.Text = "";
-			day1.Text = "";
+			Price1.ResetText();
+			day1.ResetText();
 		    //ClearTextBox(this);
         }
 
 		private void URL_Clear_Click(object sender, EventArgs e)
 		{
-			tb_html1.Text = "";
+			tb_html1.ResetText();
 		}
 
 		private void Save1_Click(object sender, EventArgs e)
 		{
+		    if (String.IsNullOrEmpty(day1.Text) || day1.Text == "日時")
+		    {
+		        MessageBox.Show("まず値段取得してください", "エラー", MessageBoxButtons.OK,
+		            MessageBoxIcon.Error);
+                return;
+		    }
 			_agodaInfo.CsvFileSave(day1.Text);
 		}
 
@@ -121,7 +127,6 @@ namespace Web2geter
                 }
 
                 var sort = new SortPrice().ReadPriceInfos(filenametest);
-                // List インターフェイスまたは IListSource インターフェイスを実装する、DataSet または Array などのオブジェクト。
 
                 string smin = sort.Min(n => n.HotelPrice).ToString();
                 string smax = sort.Max(n => n.HotelPrice).ToString();

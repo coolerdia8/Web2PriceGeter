@@ -7,7 +7,7 @@ namespace Web2geter
 {
     // クラス
     public class SetURL {
-        private Dictionary<string, string> _dict;
+        private readonly Dictionary<string, string> _dict;
         //
         // コンストラクタ
         public SetURL(string filePath) {
