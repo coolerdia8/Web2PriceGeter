@@ -17,35 +17,20 @@ namespace Web2geter
 	        InitializeComponent();
 	    }
 
-	    public class HotelUrlInfo
-	    {
-	        // URL用
-	        public string HotelName { get; set; }
-	        public string HotelURL { get; set; }
-
-            // プロパティをコンストラクタでセット
-            public HotelUrlInfo(String s, String u)
-	        {
-	            HotelName = s;
-	            HotelURL = u;
-            }
-	    }
-
-	    public void SetUrl2Box()
+        public void SetUrl2Box()
 	    {
 	        string filePath = @"URLSave\HotelInfo.csv";
             var hSetUrl = new SetURL(filePath);
-
-	        // List インターフェイスまたは IListSource インターフェイスを実装する、DataSet または Array などのオブジェクト。
-            List<HotelUrlInfo> src = new List<HotelUrlInfo>();
+            var dict = new Dictionary<string, string>();
             foreach (var obj in hSetUrl.FindAll("http"))
-	        {
-	           src.Add(new HotelUrlInfo(obj.Key, obj.Value));
-	        }
-	        // ComboBoxに表示と値をセット
-	        comboBox1.DataSource = src;
-	        comboBox1.DisplayMember = "HotelName";
-	        comboBox1.ValueMember = "HotelURL";
+            {
+                dict.Add(obj.Key, obj.Value);
+            }
+            comboBox1.DisplayMember = "Key";
+
+            // Convert the objects to array and the controls
+            // will extract the appropriate values to display and use for a value.
+            comboBox1.Items.AddRange(dict.OfType<object>().ToArray());
         }
 
         public async void button1_Click(object sender, EventArgs e)
@@ -101,8 +86,7 @@ namespace Web2geter
 
         private void URLadd_Click(object sender, EventArgs e)
         {
-            HotelUrlInfo tmp = (HotelUrlInfo)comboBox1.SelectedItem;//表示名はキャストして取りだす
-            tb_html1.Text = tmp.HotelURL;
+            tb_html1.Text = ((KeyValuePair<string, string>)comboBox1.SelectedItem).Value;//表示名はキャストして取りだす
         }
 
         private void GraphBtn_Click(object sender, EventArgs e)
